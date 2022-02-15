@@ -1,0 +1,26 @@
+
+.grid { 
+  margin: 10px;
+  position: absolute;
+  width: 99%;
+  /*transform: translate(-75%, 0);*/
+
+  display: grid;
+  grid-template-areas:
+  "h h h"
+  "n c c";
+  grid-template-rows: 80px 605px;
+  grid-template-columns: 175px 200px;
+  grid-gap: 10px;
+}
+a, NavLink, a:hover, a:focus{
+  text-decoration: none!important;
+  color: white;
+}
+::-webkit-scrollbar {
+	background-color: black;
+  overflow-y: hidden;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #ffffff40;
+}

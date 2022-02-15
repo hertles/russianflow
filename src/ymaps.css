@@ -1,0 +1,4 @@
+.ymaps {
+    filter: saturate(1.5)brightness(0.9)invert(1)hue-rotate(180deg);
+    margin-top: 10px;
+}

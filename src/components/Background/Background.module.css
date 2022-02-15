@@ -1,0 +1,14 @@
+.back{
+    
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+.image{
+    filter:brightness(0.6);
+}
+.gradient{
+    background-image: linear-gradient(to right, #00000050, transparent,transparent, transparent,#00000050);
+}
