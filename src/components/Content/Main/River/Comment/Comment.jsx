@@ -4,19 +4,23 @@ import React from "react";
 import LikeButtonContainer from "./LikeButton/LikeButtonContainer";
 
 
-
-const Comment = (props) => {
-    return (
-        <div className={s.MessageBox}>
-            <div className={s.UserName}><Button text={props.username}/></div>
-                <div className={s.Message}>{props.message}</div>
+class Comment extends React.Component {
+    render() {
+        return (
+            <div className={s.MessageBox}>
+                <div className={s.UserName}><Button text={this.props.username}/></div>
+                <div className={s.Message}>{this.props.message}</div>
                 <div className={s.Line}>
-                    <div className={s.Date}>{props.date}</div>
+                    <div className={s.Date}>{this.props.date}</div>
                     <div className={s.Likes}>
-                        <LikeButtonContainer store={props.store} likesCount={props.likesCount} mode={props.mode} commentID={props.commentID} userID={props.store.getState().User.currentUserId}/>
+                        <LikeButtonContainer store={this.props.store} likesCount={this.props.likesCount}
+                                             mode={this.props.mode} commentID={this.props.commentID}
+                                             userID={this.props.store.getState().User.currentUserId}/>
                     </div>
                 </div>
-        </div>
-    )
+            </div>
+        )
+    }
 }
+
 export default Comment;
