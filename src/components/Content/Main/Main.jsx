@@ -12,6 +12,7 @@ class Main extends React.Component {
 
     render() {
         document.getElementById("title").innerHTML = 'Маршруты';
+        console.log('main')
         let state = this.props.store.getState()
         let RiverCards = state.Main.rivers.map((river) => (
             <Item to={'/main/river' + river.riverid} name={river.rivername} descr={river.riverdescr}
