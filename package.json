@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "https://hertles.github.io",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.26.0",
@@ -17,7 +17,7 @@
     "react-scripts": "4.0.3",
     "react-yandex-maps": "^4.6.0",
     "redux": "^4.1.2",
-    "sass": "^1.43.2",
+    "sass": "^1.49.7",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-react-statements": "^0.7.3",
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^3.2.3",
+    "react-redux": "^7.2.6"
   }
 }

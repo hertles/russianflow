@@ -8,6 +8,7 @@ const Nav = () => {
             <Button to='/rent' text='Прокат'/>
             <Button to='/profile' text='Мой профиль'/>
             <Button to='/forum/etc' text='Форум'/>
+            <Button to='/api' text='React/Redux API'/>
         </span>
     );
 }
