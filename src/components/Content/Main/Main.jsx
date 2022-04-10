@@ -7,7 +7,7 @@ import * as axios from "axios";
 
 class Main extends React.Component {
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(data => console.log(data))
+
     }
 
     render() {

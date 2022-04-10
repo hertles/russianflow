@@ -1,0 +1,31 @@
+.Api{
+    width: 700px;
+    background-color: black;
+    grid-area: c;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Name{
+
+}
+.Navigation{
+    display: flex;
+    justify-content: flex-start;
+}
+.Next,.Back{
+    display: inline-block;
+}
+.Digit{
+    padding: 100px;
+}
+.NameList{
+
+}
+.spinner {
+    width: 120px;
+    height: 120px;
+    margin: 30px;
+    opacity: 50%;
+}

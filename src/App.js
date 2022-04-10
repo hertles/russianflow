@@ -9,6 +9,8 @@ import Forum from './components/Content/Forum/Forum';
 import {Route} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
 import ProfileContainer from "./components/Content/Profile/ProfileContainer";
+import ApiContainer from "./components/Content/Api/ApiContainer";
+import ApiUserContainer from "./components/Content/ApiUser/ApiUserContainer";
 /*npm install packetname -save чтобы сохранить запись об установленном пакете в package.json 
 потому что пакеты из node modules не перекачиваются в git
 npm install для скачивания модулей из package.json*/
@@ -32,13 +34,10 @@ const App = (props) => {
                                    store={props.store}
                                />}/>
 
-                    {/*<Route exact path=''
-          render={() =>
-          <Main Main={props.store.Main} AddComment={props.AddComment}/>}/>*/}
 
                     <Route path='/rent'
                            render={() =>
-                               <Rent Rent={state.Rent}/>}/>
+                               <Rent Rent={state.Rent/*       REFACTOR          */}/>}/>
 
                     <Route path='/main'
                            render={() =>
@@ -46,10 +45,21 @@ const App = (props) => {
                                    store={props.store}
                                />
                            }/>
-
+                    <Route path='/user/:apiUserID'
+                           render={()=>{
+                               <ApiUserContainer/>
+                           }}
+                    />
                     <Route path='/forum'
                            render={() =>
                                <Forum/>}/>
+
+                    <Route path='/api'
+                           render={() => {
+                               let pageHref = window.location.href.substring(window.location.href.indexOf('/api') + 5)
+                               return <ApiContainer store={props.store}/>
+                           }}/>
+
 
                 </div>
             </div>
