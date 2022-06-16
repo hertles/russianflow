@@ -1,7 +1,7 @@
 import style from './Button.module.css';
 import { NavLink } from 'react-router-dom';
 const Button = (props) => {
-    let classes=`${style.Button}`
+    let classes=`${style.Button} ${props.className}`
     if (props.active==true){
         classes=`${style.Button} ${style.Active}`
     }

@@ -12,7 +12,7 @@ class LikeButton extends React.Component {
         let classes = s.Button
         let src = "https://cdn.iconscout.com/icon/free/png-256/heart-love-like-favorite-46263.png"
         let Click = Like
-        if (this.props.mode) {
+        if (this.props.liked) {
             classes = classes + ' ' + s.active
             src = 'https://cdn.iconscout.com/icon/free/png-256/heart-love-like-favorite-save-46261.png'
             Click = Dislike

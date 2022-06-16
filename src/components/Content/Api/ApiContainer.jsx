@@ -7,10 +7,15 @@ import {
     PageMinus,
     PagePlus,
     PageSet,
-    SetTotalCount
+    SetTotalCount,
+    Follow,
+    Unfollow,
+    FetchingFollowEnd,
+    FetchingFollowStart
 } from "../../../Redux/ApiReducer";
-import React, {Component} from "react";
+import React from "react";
 import * as axios from "axios";
+import {withRouter} from "react-router-dom";
 
 let mapStateToProps = (state) => {
     return {
@@ -19,21 +24,10 @@ let mapStateToProps = (state) => {
         count: state.Api.count,
         totalCount: state.Api.totalCount,
         totalPages: state.Api.totalPages,
-        isFetching: state.Api.isFetching
+        isFetching: state.Api.isFetching,
+        isGettingFollowedUsers: state.Api.isGettingFollowedUsers
     }
 }
-/*let mapDispatchToProps = (dispatch) => {
-    return {
-        SetUsers: (list) => dispatch(ApiLoadUsersAC(list)),
-        SetTotalCount: (totalCount) => dispatch(ApiSetTotalCountAC(totalCount)),
-        PagePlus: () => dispatch(ApiPagePlusAC()),
-        PageMinus: () => dispatch(ApiPageMinusAC()),
-        PageSet: (setNumber) => dispatch(ApiPageSetAC(setNumber)),
-        FetchingStart: () => dispatch(ApiFetchingStartAC()),
-        FetchingEnd: () => dispatch(ApiFetchingEndAC()),
-
-    }
-}*/
 let mapDispatchToProps = {
     FetchingEnd,
     FetchingStart,
@@ -41,19 +35,20 @@ let mapDispatchToProps = {
     PageMinus,
     PagePlus,
     PageSet,
-    SetTotalCount
-}
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    return Object.assign({}, stateProps, dispatchProps, ownProps)
+    SetTotalCount,
+    Follow,
+    Unfollow,
+    FetchingFollowEnd,
+    FetchingFollowStart
 }
 
-class ApiAxiosContainer extends Component {
+class ApiAxiosContainer extends React.Component {
     componentDidMount() {
-        console.log('mount')
+        this.props.PageSet(this.props.match.params.page)
         this.props.FetchingStart()
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.count}&page=${this.props.page}`).then(data => {
-            this.props.SetUsers(data.data.items);
-            this.props.SetTotalCount(data.data.totalCount)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.count}&page=${this.props.page}`,{withCredentials:true}).then(response => {
+            this.props.SetUsers(response.data.items)
+            this.props.SetTotalCount(response.data.totalCount)
             this.props.FetchingEnd()
         })
     }
@@ -72,7 +67,7 @@ class ApiAxiosContainer extends Component {
     }
     Axios = (settingNumber) => {
         this.props.FetchingStart()
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.count}&page=${settingNumber}`).then(data => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.count}&page=${settingNumber}`,{withCredentials:true}).then(data => {
             this.props.SetUsers(data.data.items);
             this.props.SetTotalCount(data.data.totalCount)
             this.props.FetchingEnd()
@@ -80,11 +75,8 @@ class ApiAxiosContainer extends Component {
     }
 
     render() {
-        return <Api PageMinus={this.PageMinus} PagePlus={this.PagePlus} PageSet={this.PageSet}
-                    totalPages={this.props.totalPages} page={this.props.page} list={this.props.list}
-                    isFetching={this.props.isFetching} count={this.props.count}/>
+        return <Api {...this.props} PageMinus={this.PageMinus} PagePlus={this.PagePlus} PageSet={this.PageSet}/>
     }
 }
-
-let ApiContainer = connect(mapStateToProps, mapDispatchToProps)(ApiAxiosContainer)
-export default ApiContainer
+let WithApiContainer = withRouter(ApiAxiosContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(WithApiContainer)

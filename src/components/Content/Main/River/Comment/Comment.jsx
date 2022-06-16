@@ -14,7 +14,7 @@ class Comment extends React.Component {
                     <div className={s.Date}>{this.props.date}</div>
                     <div className={s.Likes}>
                         <LikeButtonContainer store={this.props.store} likesCount={this.props.likesCount}
-                                             mode={this.props.mode} commentID={this.props.commentID}
+                                             liked={this.props.liked} commentID={this.props.commentID}
                                              userID={this.props.store.getState().User.currentUserId}/>
                     </div>
                 </div>

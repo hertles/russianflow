@@ -3,10 +3,11 @@ import {act} from "@testing-library/react";
 let initialState = {
     list: [],
     page: 1,
-    count: 9,
+    count: 10,
     totalCount: 0,
     totalPages: 0,
-    isFetching: false
+    isFetching: false,
+    isGettingFollowedUsers: []
 }
 
 
@@ -50,31 +51,55 @@ let ApiReducer = (state = initialState, action) => {
             StateCopy.isFetching = false
             return StateCopy
         }
+        case 'FOLLOW': {
+            return {
+                ...state,
+                list: state.list.map(user=>{
+                    if (user.id==action.userId){
+                        return {...user, followed:true}
+                    }
+                    return {...user}
+                })
+            }
+        }
+        case 'UNFOLLOW': {
+            return {
+                ...state,
+                list: state.list.map(user=>{
+                    if (user.id==action.userId){
+                        return {...user, followed:false}
+                    }
+                    return {...user}
+                })
+            }
+        }
+        case 'FETCHING_FOLLOW_START': {
+            return {
+                ...state,
+                isGettingFollowedUsers: [...state.isGettingFollowedUsers, action.userId]
+            }
+        }
+        case 'FETCHING_FOLLOW_END': {
+            debugger;
+            return {
+                ...state,
+                isGettingFollowedUsers: state.isGettingFollowedUsers.filter(userId=>userId!=action.userId)
+            }
+        }
         default: {
             return state;
         }
     }
 }
-export let SetUsers = (list) => {
-    return {type: 'API_LOAD_USERS', list: list}
-}
-export let SetTotalCount = (totalCount) => {
-    return {type: 'API_SET_TOTAL_COUNT', totalCount: totalCount}
-}
-
-export let PagePlus = () => {
-    return {type: 'PAGE_PLUS'}
-}
-export let PageMinus = () => {
-    return {type: 'PAGE_MINUS'}
-}
-export let PageSet = (setNumber) => {
-    return {type: 'PAGE_SET', setNumber: setNumber}
-}
-export let FetchingStart = () => {
-    return {type: 'FETCHING_START'}
-}
-export let FetchingEnd = () => {
-    return {type: 'FETCHING_END'}
-}
+export let Follow = (userId) => ({type: 'FOLLOW', userId})
+export let Unfollow = (userId) => ({type: 'UNFOLLOW', userId})
+export let SetUsers = (list) => ({type: 'API_LOAD_USERS', list: list})
+export let SetTotalCount = (totalCount) => ({type: 'API_SET_TOTAL_COUNT', totalCount: totalCount})
+export let PagePlus = () => ({type: 'PAGE_PLUS'})
+export let PageMinus = () => ({type: 'PAGE_MINUS'})
+export let PageSet = (setNumber) => ({type: 'PAGE_SET', setNumber: setNumber})
+export let FetchingStart = () => ({type: 'FETCHING_START'})
+export let FetchingEnd = () => ({type: "FETCHING_END"})
+export let FetchingFollowStart = (userId) => ({type: 'FETCHING_FOLLOW_START', userId})
+export let FetchingFollowEnd = (userId) => ({type: "FETCHING_FOLLOW_END", userId})
 export default ApiReducer

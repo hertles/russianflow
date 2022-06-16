@@ -1,8 +1,6 @@
 import './App.css';
 import React from 'react'
 import Main from './components/Content/Main/Main';
-import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
 import Background from './components/Background/Background'
 import Rent from './components/Content/Rent/Rent';
 import Forum from './components/Content/Forum/Forum';
@@ -11,6 +9,8 @@ import {BrowserRouter} from 'react-router-dom';
 import ProfileContainer from "./components/Content/Profile/ProfileContainer";
 import ApiContainer from "./components/Content/Api/ApiContainer";
 import ApiUserContainer from "./components/Content/ApiUser/ApiUserContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import NavContainer from "./components/Nav/NavContainer";
 /*npm install packetname -save чтобы сохранить запись об установленном пакете в package.json 
 потому что пакеты из node modules не перекачиваются в git
 npm install для скачивания модулей из package.json*/
@@ -22,11 +22,11 @@ const App = (props) => {
     return (
         <BrowserRouter>
             <div className="App">
-                <Header/>
+                <HeaderContainer/>
                 <Background/>
                 <div className="grid">
 
-                    <Nav/>
+                    <NavContainer/>
 
                     <Route path='/profile'
                            render={() =>
@@ -45,18 +45,17 @@ const App = (props) => {
                                    store={props.store}
                                />
                            }/>
-                    <Route path='/user/:apiUserID'
+                    <Route path='/user/:userId'
                            render={()=>{
-                               <ApiUserContainer/>
+                               return <ApiUserContainer/>
                            }}
                     />
                     <Route path='/forum'
                            render={() =>
                                <Forum/>}/>
 
-                    <Route path='/api'
+                    <Route path='/api/:page'
                            render={() => {
-                               let pageHref = window.location.href.substring(window.location.href.indexOf('/api') + 5)
                                return <ApiContainer store={props.store}/>
                            }}/>
 

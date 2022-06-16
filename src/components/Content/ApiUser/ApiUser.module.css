@@ -1,0 +1,26 @@
+.ApiUser{
+    width: 700px;
+    background-color: black;
+    grid-area: c;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+}
+.profilePhoto{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+.profilePhoto:active{
+    filter: brightness(0.85);
+}
+.info{
+    margin: 10px;
+}
+.Subscribe{
+    width: 115px;
+    text-align: center;
+}
