@@ -14,6 +14,7 @@ class ApiUserAxiosContainer extends React.Component {
                 this.props.GetUser(userData.userId, userData.fullName, userData.photos, userData.lookingForAJob, followed)
                 this.props.GetFollowedStatus(followed)
                 this.props.FetchingEnd()
+
             }
         )
     }
