@@ -6,6 +6,9 @@
     background-color: #003900;
 }
 .item{
+    border-radius: 10px;
+    box-sizing : border-box;
+    overflow: hidden;
     background-color: #000000;
     width: 300px;
     height: 400px;
@@ -19,6 +22,7 @@
     width: 300px;
     height: 200px;
     object-position: 0% 80%;
+    opacity: 100%;
 }
 .item>div
 {

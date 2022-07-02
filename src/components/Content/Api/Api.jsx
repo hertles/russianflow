@@ -13,7 +13,7 @@ let Api = props => {
             numbers.push(i)
         }
     }
-    if (props.page > props.totalPages - 2 && props.totalPages != 0) {
+    else if (props.page > props.totalPages - 2 && props.totalPages != 0) {
         numbers = []
         for (let i = props.totalPages - 4; i <= props.totalPages; i++) {
             numbers.push(i)
@@ -51,24 +51,24 @@ let Api = props => {
                                         if (!response.data.resultCode){
                                             props.Follow(item.id)
                                         }
+                                        props.FetchingFollowEnd(item.id)
                                     })
                                 }
-                                props.FetchingFollowEnd(item.id)
+
                             }}>
                                 {`Подписаться`}
                             </div>
                             : <div className={`Button Active ${style.Subscribe} ${props.isGettingFollowedUsers.some(id=>id===item.id)?"ruler" : ""}`} onClick={() => {
-                                debugger
                                 props.FetchingFollowStart(item.id)
-                                debugger
                                 if (!props.isGettingFollowedUsers.some(id=>id===item.id)){
                                     axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${item.id}`, {withCredentials: true, headers: {'API-KEY':'ea3d200c-ad10-4771-b08b-33869071b724'}}).then(response => {
                                         if (!response.data.resultCode){
                                             props.Unfollow(item.id)
                                         }
+                                        props.FetchingFollowEnd(item.id)
                                     })
                                 }
-                                props.FetchingFollowEnd(item.id)
+
                             }}>
                                 {`Отписаться`}
                             </div>

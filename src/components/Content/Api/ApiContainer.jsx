@@ -11,7 +11,7 @@ import {
     Follow,
     Unfollow,
     FetchingFollowEnd,
-    FetchingFollowStart
+    FetchingFollowStart, LoadPage
 } from "../../../Redux/ApiReducer";
 import React from "react";
 import * as axios from "axios";
@@ -39,20 +39,21 @@ let mapDispatchToProps = {
     Follow,
     Unfollow,
     FetchingFollowEnd,
-    FetchingFollowStart
+    FetchingFollowStart,
+    LoadPage
 }
 
 class ApiAxiosContainer extends React.Component {
     componentDidMount() {
-        this.props.PageSet(this.props.match.params.page)
+        this.props.LoadPage(Number(this.props.match.params.page),this.props.count)
+        /*this.props.PageSet(Number(this.props.match.params.page))
         this.props.FetchingStart()
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.count}&page=${this.props.page}`,{withCredentials:true}).then(response => {
             this.props.SetUsers(response.data.items)
             this.props.SetTotalCount(response.data.totalCount)
             this.props.FetchingEnd()
-        })
+        })*/
     }
-
     PageMinus = () => {
         this.Axios(this.props.page - 1)
         this.props.PageSet(this.props.page - 1)

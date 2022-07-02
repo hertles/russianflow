@@ -17,4 +17,9 @@ export class ApiUserAxios {
             return [UserResponse.data, FollowResponse.data]
         })
     }
+    static async GetUsers(pageCount, pageNumber){
+        return instance.get(`users?count=${pageCount}&page=${pageNumber}`).then((response)=>{
+            return ({items: response.data.items, totalCount:response.data.totalCount})
+        })
+    }
 }

@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import MainReducer from './MainReducer'
 import RentReducer from "./RentReducer";
 import UserReducer from './UserReducer'
@@ -6,6 +6,7 @@ import ApiReducer from "./ApiReducer";
 import ApiUserReducer from "./ApiUserReducer";
 import ApiAuthReducer from "./ApiAuthReducer";
 import ApiFollowReducer from "./ApiFollowReducer";
+import thunk from 'redux-thunk'
 
 
 let reducers = combineReducers({
@@ -18,5 +19,5 @@ let reducers = combineReducers({
     ApiFollow: ApiFollowReducer
 })
 
-let store = createStore(reducers)
+let store = createStore(reducers,applyMiddleware(thunk))
 export default store

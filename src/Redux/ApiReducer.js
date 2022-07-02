@@ -1,4 +1,5 @@
 import {act} from "@testing-library/react";
+import {ApiUserAxios} from "../Axios/Axios";
 
 let initialState = {
     list: [],
@@ -80,7 +81,7 @@ let ApiReducer = (state = initialState, action) => {
             }
         }
         case 'FETCHING_FOLLOW_END': {
-            debugger;
+
             return {
                 ...state,
                 isGettingFollowedUsers: state.isGettingFollowedUsers.filter(userId=>userId!=action.userId)
@@ -102,4 +103,16 @@ export let FetchingStart = () => ({type: 'FETCHING_START'})
 export let FetchingEnd = () => ({type: "FETCHING_END"})
 export let FetchingFollowStart = (userId) => ({type: 'FETCHING_FOLLOW_START', userId})
 export let FetchingFollowEnd = (userId) => ({type: "FETCHING_FOLLOW_END", userId})
+export let LoadPage = (pageNumber, pageCount) =>{
+    return (dispatch) => {
+        dispatch(PageSet(pageNumber))
+        dispatch(FetchingStart())
+        ApiUserAxios.GetUsers(pageCount, pageNumber).then(data => {
+            console.log(data)
+            dispatch(SetUsers(data.items))
+            dispatch(SetTotalCount(data.totalCount))
+            dispatch(FetchingEnd())
+        })
+    }
+}
 export default ApiReducer
