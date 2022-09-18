@@ -1,7 +1,6 @@
 import Nav from './Nav'
 import {connect} from 'react-redux'
 import React from 'react'
-import ApiReducer from "../../Redux/ApiReducer";
 class NavAxiosContainer extends React.Component{
     componentDidMount(){
 
@@ -14,7 +13,8 @@ class NavAxiosContainer extends React.Component{
 }
 let mapStateToProps = (state) => {
     return {
-        page: state.Api.page
+        page: state.Api.page,
+        userId: state.ApiAuth.userId
     }
 }
 let mapDispatchToProps = (dispatch) => {

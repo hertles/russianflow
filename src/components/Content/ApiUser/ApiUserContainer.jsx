@@ -1,47 +1,26 @@
 import React from 'react';
 import ApiUser from './ApiUser'
 import {connect} from 'react-redux'
-import * as axios from 'axios'
 import {withRouter} from "react-router-dom";
 import {GetUser, FetchingStart, FetchingEnd, GetFollowedStatus, Follow, Unfollow, FetchingFollowEnd, FetchingFollowStart} from "../../../Redux/ApiUserReducer";
-import {ApiUserAxios} from "../../../Axios/Axios";
+import {compose} from "redux";
 
 
 class ApiUserAxiosContainer extends React.Component {
-    LoadUserFromServer(){
-        this.props.FetchingStart()
-        ApiUserAxios.GetUserAxios(this.props.match.params.userId).then(([userData,followed]) => {
-                this.props.GetUser(userData.userId, userData.fullName, userData.photos, userData.lookingForAJob, followed)
-                this.props.GetFollowedStatus(followed)
-                this.props.FetchingEnd()
-
-            }
-        )
-    }
-    /*FollowThisUser(){
-        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.userId}`, {},{withCredentials: true, headers: {'API-KEY':'ea3d200c-ad10-4771-b08b-33869071b724'}}).then(response => {
-            if (!response.data.resultCode){
-                this.props.Follow(this.props.userId).bind(this)
-            }
-        })
-    }*/
     componentDidMount() {
-        this.LoadUserFromServer()
+        this.props.GetUser(this.props.match.params.userId)
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.userId != this.props.match.params.userId) {
-            this.LoadUserFromServer()
+            this.props.GetUser(this.props.match.params.userId)
         }
     }
-
     render() {
         return (
-            <ApiUser {...this.props} /*FollowThisUser={this.FollowThisUser}*//>
+            <ApiUser {...this.props}/>
         );
     }
 }
-
 let mapStateToProps = (state) => {
     return {
         fullName: state.ApiUser.fullName,
@@ -50,7 +29,8 @@ let mapStateToProps = (state) => {
         photos: state.ApiUser.photos,
         lookingForAJob: state.ApiUser.lookingForAJob,
         isFetching: state.ApiUser.isFetching,
-        isGettingFollowed: state.ApiUser.isGettingFollowed
+        isGettingFollowed: state.ApiUser.isGettingFollowed,
+        myId: state.ApiAuth.userId
     }
 }
 let mapDispatchToProps = {
@@ -63,6 +43,5 @@ let mapDispatchToProps = {
     FetchingFollowEnd,
     FetchingFollowStart
 }
-let WithApiUserContainer = withRouter(ApiUserAxiosContainer)
-let ApiUserContainer = connect(mapStateToProps, mapDispatchToProps)(WithApiUserContainer)
+let ApiUserContainer = compose(connect(mapStateToProps, mapDispatchToProps),withRouter)(ApiUserAxiosContainer)
 export default ApiUserContainer

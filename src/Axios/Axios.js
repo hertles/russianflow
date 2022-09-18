@@ -9,7 +9,7 @@ let instance = axios.create(
 )
 
 export class ApiUserAxios {
-    static async GetUserAxios(userId){
+    static async GetUser(userId){
         return Promise.all([
             instance.get(`profile/${userId}`),
             instance.get(`follow/${userId}`)
@@ -20,6 +20,19 @@ export class ApiUserAxios {
     static async GetUsers(pageCount, pageNumber){
         return instance.get(`users?count=${pageCount}&page=${pageNumber}`).then((response)=>{
             return ({items: response.data.items, totalCount:response.data.totalCount})
+        })
+    }
+    static async Follow(userId){
+        return instance.post(`follow/${userId}`)
+    }
+    static async Unfollow(userId){
+        return instance.delete(`follow/${userId}`)
+    }
+}
+export class ApiAuthAxios{
+    static async Auth(){
+        return instance.get('auth/me').then((response)=>{
+            return {id: response.data.data.id, login: response.data.data.login, email:response.data.data.email}
         })
     }
 }

@@ -11,10 +11,8 @@ import ApiContainer from "./components/Content/Api/ApiContainer";
 import ApiUserContainer from "./components/Content/ApiUser/ApiUserContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import NavContainer from "./components/Nav/NavContainer";
-/*npm install packetname -save чтобы сохранить запись об установленном пакете в package.json 
-потому что пакеты из node modules не перекачиваются в git
-npm install для скачивания модулей из package.json*/
-/*rcc rcep rcredux */
+import LoginContainer from "./components/Auth/LoginContainer";
+import EditProfileContainer from "./components/Content/EditProfile/EditProfileContainer";
 
 const App = (props) => {
     let state = props.store.getState()
@@ -27,38 +25,36 @@ const App = (props) => {
                 <div className="grid">
 
                     <NavContainer/>
+                    <div className='content'>
+                        <Route path='/rent'
+                               render={() =>
+                                   <Rent Rent={state.Rent/*       REFACTOR          */}/>}/>
 
-                    <Route path='/profile'
-                           render={() =>
-                               <ProfileContainer
-                                   store={props.store}
-                               />}/>
-
-
-                    <Route path='/rent'
-                           render={() =>
-                               <Rent Rent={state.Rent/*       REFACTOR          */}/>}/>
-
-                    <Route path='/main'
-                           render={() =>
-                               <Main
-                                   store={props.store}
-                               />
-                           }/>
-                    <Route path='/user/:userId'
-                           render={()=>{
-                               return <ApiUserContainer/>
-                           }}
-                    />
-                    <Route path='/forum'
-                           render={() =>
-                               <Forum/>}/>
-
-                    <Route path='/api/:page'
-                           render={() => {
-                               return <ApiContainer store={props.store}/>
-                           }}/>
-
+                        <Route path='/main'
+                               render={() =>
+                                   <Main
+                                       store={props.store}
+                                   />
+                               }/>
+                        <Route path='/user/:userId'
+                               render={() => {
+                                   return <ApiUserContainer/>
+                               }}
+                        />
+                        <Route path='/forum'
+                               render={() =>
+                                   <Forum/>}/>
+                        <Route path='/login'
+                               render={() =>
+                                   <LoginContainer/>}/>
+                        <Route path='/edit-profile'
+                               render={() =>
+                                   <EditProfileContainer/>}/>
+                        <Route path='/api/:page'
+                               render={() => {
+                                   return <ApiContainer store={props.store}/>
+                               }}/>
+                    </div>
 
                 </div>
             </div>

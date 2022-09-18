@@ -14,8 +14,8 @@ import {
     FetchingFollowStart, LoadPage
 } from "../../../Redux/ApiReducer";
 import React from "react";
-import * as axios from "axios";
 import {withRouter} from "react-router-dom";
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
     return {
@@ -46,38 +46,19 @@ let mapDispatchToProps = {
 class ApiAxiosContainer extends React.Component {
     componentDidMount() {
         this.props.LoadPage(Number(this.props.match.params.page),this.props.count)
-        /*this.props.PageSet(Number(this.props.match.params.page))
-        this.props.FetchingStart()
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.count}&page=${this.props.page}`,{withCredentials:true}).then(response => {
-            this.props.SetUsers(response.data.items)
-            this.props.SetTotalCount(response.data.totalCount)
-            this.props.FetchingEnd()
-        })*/
     }
     PageMinus = () => {
-        this.Axios(this.props.page - 1)
-        this.props.PageSet(this.props.page - 1)
+        this.props.LoadPage(Number(this.props.match.params.page)-1,this.props.count)
     }
     PagePlus = () => {
-        this.Axios(this.props.page + 1)
-        this.props.PageSet(this.props.page + 1)
+        this.props.LoadPage(Number(this.props.match.params.page)+1,this.props.count)
     }
     PageSet = (settingNumber) => {
-        this.Axios(settingNumber)
-        this.props.PageSet(settingNumber)
-    }
-    Axios = (settingNumber) => {
-        this.props.FetchingStart()
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.count}&page=${settingNumber}`,{withCredentials:true}).then(data => {
-            this.props.SetUsers(data.data.items);
-            this.props.SetTotalCount(data.data.totalCount)
-            this.props.FetchingEnd()
-        })
+        this.props.LoadPage(settingNumber,this.props.count)
     }
 
     render() {
         return <Api {...this.props} PageMinus={this.PageMinus} PagePlus={this.PagePlus} PageSet={this.PageSet}/>
     }
 }
-let WithApiContainer = withRouter(ApiAxiosContainer)
-export default connect(mapStateToProps, mapDispatchToProps)(WithApiContainer)
+export default compose(connect(mapStateToProps, mapDispatchToProps),withRouter)(ApiAxiosContainer)

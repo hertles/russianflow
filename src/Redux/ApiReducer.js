@@ -92,8 +92,8 @@ let ApiReducer = (state = initialState, action) => {
         }
     }
 }
-export let Follow = (userId) => ({type: 'FOLLOW', userId})
-export let Unfollow = (userId) => ({type: 'UNFOLLOW', userId})
+export let FollowAC = (userId) => ({type: 'FOLLOW', userId})
+export let UnfollowAC = (userId) => ({type: 'UNFOLLOW', userId})
 export let SetUsers = (list) => ({type: 'API_LOAD_USERS', list: list})
 export let SetTotalCount = (totalCount) => ({type: 'API_SET_TOTAL_COUNT', totalCount: totalCount})
 export let PagePlus = () => ({type: 'PAGE_PLUS'})
@@ -108,11 +108,34 @@ export let LoadPage = (pageNumber, pageCount) =>{
         dispatch(PageSet(pageNumber))
         dispatch(FetchingStart())
         ApiUserAxios.GetUsers(pageCount, pageNumber).then(data => {
-            console.log(data)
             dispatch(SetUsers(data.items))
             dispatch(SetTotalCount(data.totalCount))
             dispatch(FetchingEnd())
         })
+    }
+}
+export const Follow = (userId) => {
+    return (dispatch) => {
+        dispatch(FetchingFollowStart(userId))
+            ApiUserAxios.Follow(userId)
+                .then(response => {
+                    if (!response.data.resultCode) {
+                        dispatch(FollowAC(userId))
+                    }
+                    dispatch(FetchingFollowEnd(userId))
+                })
+    }
+}
+export const Unfollow = (userId) => {
+    return (dispatch) => {
+        dispatch(FetchingFollowStart(userId))
+        ApiUserAxios.Unfollow(userId)
+            .then(response => {
+                if (!response.data.resultCode) {
+                    dispatch(UnfollowAC(userId))
+                }
+                dispatch(FetchingFollowEnd(userId))
+            })
     }
 }
 export default ApiReducer

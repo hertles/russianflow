@@ -3,7 +3,7 @@ import s from './Header.module.css';
 import Button from "../Button/Button";
 
 const Header = (props) => {
-    let AuthButton = <Button text='Войти' to={`/auth`}/>
+    let AuthButton = <Button text='Войти' to={`/login`}/>
     if (props.isAuth)
         AuthButton = <Button text={props.login} to={`/user/${props.userId}`}/>
     return (
