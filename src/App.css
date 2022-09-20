@@ -7,10 +7,10 @@
 
   display: grid;
   grid-template-areas:
-  "h h h"
-  "n c c";
+  "h h"
+  "n c";
   grid-template-rows: 80px 605px;
-  grid-template-columns: 175px 200px;
+  grid-template-columns: 175px 80%;
   grid-gap: 10px;
 }
 a, NavLink, a:hover, a:focus{
@@ -20,6 +20,19 @@ a, NavLink, a:hover, a:focus{
 .content{
   grid-area: c;
 }
+.backgroundBlock{
+  background-color: black;
+  border-radius: 5px;
+}
+input{
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #222222;
+  color: white;
+  border: 0px;
+  outline: none;
+}
+
 ::-webkit-scrollbar {
 	background-color: black;
   overflow-y: hidden;

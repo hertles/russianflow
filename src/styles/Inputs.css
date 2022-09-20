@@ -1,0 +1,8 @@
+.errorInput{
+    border: 2px solid firebrick;
+}
+.errorMessage{
+    margin: 0 10px;
+    color: firebrick;
+    font-weight: bold;
+}

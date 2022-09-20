@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 const Header = (props) => {
     let AuthButton = <Button text='Войти' to={`/login`}/>
     if (props.isAuth)
-        AuthButton = <Button text={props.login} to={`/user/${props.userId}`}/>
+        AuthButton = <Button text={props.login} to={`/edit-profile`}/>
     return (
         <span className={s.Header}>
                 <NavLink to='/main'><img

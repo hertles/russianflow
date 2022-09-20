@@ -7,6 +7,7 @@ import ApiUserReducer from "./ApiUserReducer";
 import ApiAuthReducer from "./ApiAuthReducer";
 import ApiFollowReducer from "./ApiFollowReducer";
 import thunk from 'redux-thunk'
+import {reducer as formReducer} from 'redux-form'
 
 
 let reducers = combineReducers({
@@ -16,7 +17,8 @@ let reducers = combineReducers({
     Api: ApiReducer,
     ApiUser: ApiUserReducer,
     ApiAuth: ApiAuthReducer,
-    ApiFollow: ApiFollowReducer
+    ApiFollow: ApiFollowReducer,
+    form: formReducer
 })
 
 let store = createStore(reducers,applyMiddleware(thunk))

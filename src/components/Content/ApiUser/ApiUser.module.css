@@ -1,7 +1,5 @@
 .ApiUser{
     width: 700px;
-    background-color: black;
-    grid-area: c;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -23,4 +21,12 @@
 .Subscribe{
     width: 115px;
     text-align: center;
+}
+.myProfileButton{
+    width: fit-content;
+    margin: 5px;
+}
+.buttonsBlock{
+    display: flex;
+    align-items: center;
 }

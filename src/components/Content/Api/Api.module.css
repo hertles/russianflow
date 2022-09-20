@@ -1,6 +1,5 @@
 .Api{
     width: 700px;
-    background-color: black;
     grid-area: c;
     display: flex;
     padding: 10px;

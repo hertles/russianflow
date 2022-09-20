@@ -1,13 +1,13 @@
 import style from './Button.module.css';
 import { NavLink } from 'react-router-dom';
 const Button = (props) => {
-    let classes=`${style.Button} ${props.className}`
+    let classes=`Button ${props.className}`
     if (props.active==true){
-        classes=`${style.Button} ${style.Active}`
+        classes=`Button Active`
     }
     if (props.to!=null)
         return(
-                <NavLink to={props.to}><div className={classes}>
+                <NavLink to={props.to} ><div className={classes}>
                     {props.text}
                 </div></NavLink>
         );

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import style from './Api.module.css'
 import Preloader from "../../Preloader/Preloader";
 import {NavLink} from "react-router-dom";
-import '../../../styles/Button.css'
 
 let Api = props => {
     let numbers = [1, 2, 3, 4, 5]
@@ -34,7 +33,7 @@ let Api = props => {
         </NavLink>
     }
     return (
-        <div className={style.Api}>
+        <div className={`${style.Api} backgroundBlock`}>
             <div className={style.NameList}>
                 {props.isFetching ? <Preloader/> : props.list.map((user, index) =>
                     <div className={style.Name}>

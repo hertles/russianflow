@@ -6,7 +6,7 @@ import Preloader from "../../Preloader/Preloader";
 
 let ApiUser = (props) => {
     if (props.isFetching) {
-        return <div className={style.ApiUser}><Preloader/></div>
+        return <div className={`${style.ApiUser} backgroundBlock`}><Preloader/></div>
     }
     let MainButton = props.followed === false
         ? <div className={`Button ${style.Subscribe} ${props.isGettingFollowed ? "ruler" : ""}`} onClick={() => {
@@ -20,8 +20,9 @@ let ApiUser = (props) => {
         }}>
             {`Отписаться`}
         </div>
-    if (props.userId===props.myId){
-        MainButton=<Button to='/edit-profile' text='Редактировать профиль'/>
+    if (props.userId === props.myId) {
+        MainButton = <Button className={`${style.myProfileButton}`} to='/edit-profile'
+                             text='Редактировать профиль'/>
     }
     let photo = props.photos.large
     if (!props.photos.large) {
@@ -29,9 +30,10 @@ let ApiUser = (props) => {
     }
     let lookingForAJob = false
     lookingForAJob = props.lookingForAJob ? 'Ищет работу' : 'Не ищет работу'
-    return <div className={style.ApiUser}><Button text={props.fullName}/><img className={style.profilePhoto} src={photo}
-                                                                              alt=""/>
-
+    return <div className={`${style.ApiUser} backgroundBlock`}><Button text={props.fullName}/><img
+        className={style.profilePhoto} src={photo}
+        alt=""/>
+        <div className={style.info}>Статус: {props.status}</div>
         <div className={style.info}>ID пользователя: {props.userId}</div>
         <div className={style.info}>Информация: {lookingForAJob}</div>
         {MainButton}

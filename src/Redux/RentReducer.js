@@ -9,7 +9,7 @@ let initialState = {
         {
             catid: 1,
             catname: 'Надувные байдарки',
-            catimg: 'https://cs-msk-fd-4.ykt2.ru/media/upload/photo/2015/05/20/P1010386.jpeg',
+            catimg: 'https://images.sturm-shop.ru/0/ac/0ac44cf92ef7a10dd8f663918aa06657.jpg',
             catdescr: 'Дополнительные приключения на пятую точку'
         },
         {

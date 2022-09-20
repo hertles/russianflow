@@ -4,10 +4,12 @@ import {connect} from 'react-redux'
 import {withRouter} from "react-router-dom";
 import {GetUser, FetchingStart, FetchingEnd, GetFollowedStatus, Follow, Unfollow, FetchingFollowEnd, FetchingFollowStart} from "../../../Redux/ApiUserReducer";
 import {compose} from "redux";
+import {LogoutFromAPI} from "../../../Redux/ApiAuthReducer";
 
 
 class ApiUserAxiosContainer extends React.Component {
     componentDidMount() {
+        console.log('moubt')
         this.props.GetUser(this.props.match.params.userId)
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -30,7 +32,8 @@ let mapStateToProps = (state) => {
         lookingForAJob: state.ApiUser.lookingForAJob,
         isFetching: state.ApiUser.isFetching,
         isGettingFollowed: state.ApiUser.isGettingFollowed,
-        myId: state.ApiAuth.userId
+        myId: state.ApiAuth.userId,
+        status: state.ApiUser.status
     }
 }
 let mapDispatchToProps = {
@@ -41,7 +44,8 @@ let mapDispatchToProps = {
     FetchingEnd,
     GetFollowedStatus,
     FetchingFollowEnd,
-    FetchingFollowStart
+    FetchingFollowStart,
+    LogoutFromAPI
 }
 let ApiUserContainer = compose(connect(mapStateToProps, mapDispatchToProps),withRouter)(ApiUserAxiosContainer)
 export default ApiUserContainer

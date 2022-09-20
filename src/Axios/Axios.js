@@ -12,9 +12,10 @@ export class ApiUserAxios {
     static async GetUser(userId){
         return Promise.all([
             instance.get(`profile/${userId}`),
-            instance.get(`follow/${userId}`)
-        ]).then(([UserResponse, FollowResponse]) => {
-            return [UserResponse.data, FollowResponse.data]
+            instance.get(`follow/${userId}`),
+            instance.get(`profile/status/${userId}`)
+        ]).then(([UserResponse, FollowResponse, StatusResponse]) => {
+            return [UserResponse.data, FollowResponse.data, StatusResponse.data]
         })
     }
     static async GetUsers(pageCount, pageNumber){
@@ -28,11 +29,20 @@ export class ApiUserAxios {
     static async Unfollow(userId){
         return instance.delete(`follow/${userId}`)
     }
+    static async SetStatus(status){
+        return instance.put(`profile/status`,{status})
+    }
 }
 export class ApiAuthAxios{
     static async Auth(){
         return instance.get('auth/me').then((response)=>{
             return {id: response.data.data.id, login: response.data.data.login, email:response.data.data.email}
         })
+    }
+    static async LoginToAPI(email,password,rememberMe){
+        return instance.post('auth/login',{email,password,rememberMe})
+    }
+    static async LogoutFromAPI(){
+        return instance.delete('auth/login')
     }
 }
