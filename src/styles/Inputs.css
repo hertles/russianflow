@@ -1,5 +1,16 @@
+input{
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #333333;
+    color: white;
+    border: 0px;
+    outline: none;
+}
 .errorInput{
     border: 2px solid firebrick;
+}
+.errorInput::placeholder{
+    color: #936464;
 }
 .errorMessage{
     margin: 0 10px;

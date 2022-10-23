@@ -1,0 +1,14 @@
+.MessageBox{
+    display: flex;
+    align-items: center;
+    padding:1px;
+    width: 700px;
+    display: flex;
+}
+.MessageInput{
+    margin: 15px;
+    width:inherit;
+}
+.submit{
+    margin-right: 10px;
+}

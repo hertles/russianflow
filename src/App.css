@@ -1,8 +1,15 @@
-
+body{
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 .grid { 
   margin: 10px;
   position: absolute;
-  width: 99%;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%,0);
+  width: 900px;
+  height: 98%;
   /*transform: translate(-75%, 0);*/
 
   display: grid;
@@ -21,22 +28,19 @@ a, NavLink, a:hover, a:focus{
   grid-area: c;
 }
 .backgroundBlock{
-  background-color: black;
-  border-radius: 5px;
-}
-input{
-  border-radius: 5px;
-  padding: 10px;
   background-color: #222222;
-  color: white;
-  border: 0px;
-  outline: none;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar {
 	background-color: black;
-  overflow-y: hidden;
 }
 ::-webkit-scrollbar-thumb {
 	background-color: #ffffff40;
+}
+.CenterPreloader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
 }

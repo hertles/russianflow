@@ -1,0 +1,74 @@
+.Api{
+    width: 700px;
+    grid-area: c;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+.Name{
+    display: flex;
+    justify-content: space-between;
+}
+.searchInput{
+    width: 605px;
+    margin-right: 10px;
+}
+.searchForm{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.Navigation{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: -10px;
+    margin-bottom: 0px;
+}
+.nothingFind{
+    padding: 10px;
+}
+.Next{
+    margin-left: 0px!important;
+}
+.Back{
+    margin-left: 0px!important;
+}
+.Digit{
+    width: fit-content;
+    min-width: 45px;
+    height: 45px;
+    text-align: center;
+    margin-left: 0px!important;
+}
+.Next,.Back,.Digit{
+    margin-bottom: 0!important;
+}
+.NameList{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.spinner {
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+    opacity: 50%;
+}
+.NameButton {
+    width: 488px;
+    margin: 0px 0px 10px 0px!important;
+}
+.Subscribe{
+    width: 125px;
+    margin: 0px 0px 10px 0px!important;
+    text-align: center;
+}
+.Avatar{
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+}

@@ -1,19 +1,15 @@
 import s from './Nav.module.css';
-import Button from '../Button/Button';
-import style from "../Content/ApiUser/ApiUser.module.css";
+import Button from '../Common/Button/Button';
 
 const Nav = (props) => {
-    let ProfileButton=""
-    if (props.userId!=null){
-        ProfileButton=<Button to={`/edit-profile`} text='Мой профиль'/>
-    }
     return (
         <span className={`${s.Nav} backgroundBlock`}>
-            <Button to='/main' text='Маршруты'/>
+            <Button to='/main' text='Реки'/>
             <Button to='/rent' text='Прокат'/>
-            {ProfileButton}
+            {props.userId!=null && <Button to={`/edit-profile`} text='Мой профиль'/>}
             <Button to='/forum/etc' text='Форум'/>
-            <Button to={`/api/${props.page}`} text='React/Redux API'/>
+            <Button to={`/users/all/${props.page}`} text='Все пользователи'/>
+            {props.userId!=null && <Button to={`/users/followed/${props.followedPage}`} text='Мои подписки'/>}
         </span>
     );
 }

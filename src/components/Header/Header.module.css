@@ -1,13 +1,21 @@
 .Header{
-    background-Color: #000000;
     position: absolute;
-    width: 100%;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,0);
+    width: 900px;
     height: 80px;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     z-index: 10;
+}
+.leftSide,.rightSide{
+    display: flex;
+    align-items: center;
+}
+.Back{
+    padding: 10px 20px;
 }
 .logo{
     padding: 0.3%;

@@ -15,13 +15,17 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-final-form": "^6.5.9",
-    "react-router-dom": "^5.3.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "4.0.3",
+    "react-testing-library": "^8.0.1",
     "react-yandex-maps": "^4.6.0",
     "redux": "^4.1.2",
+    "redux-devtools": "^3.7.0",
+    "redux-devtools-extension": "^2.13.9",
     "redux-form": "^8.3.8",
     "redux-offline": "^2.0.0",
     "redux-thunk": "^2.4.1",
+    "reselect": "^4.1.6",
     "sass": "^1.49.7",
     "web-vitals": "^1.1.2"
   },
@@ -54,6 +58,7 @@
   "devDependencies": {
     "babel-plugin-transform-react-statements": "^0.7.3",
     "gh-pages": "^3.2.3",
-    "react-redux": "^7.2.6"
+    "react-redux": "^7.2.6",
+    "react-test-renderer": "^17.0.2"
   }
 }

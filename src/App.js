@@ -2,65 +2,83 @@ import './App.css';
 import './styles/Button.css'
 import './styles/CheckBox.css'
 import './styles/Inputs.css'
+import backgroundStyle from './styles/Background.module.css'
+import priroda from './assets/images/priroda.jpg'
 import React from 'react'
-import Main from './components/Content/Main/Main';
-import Background from './components/Background/Background'
-import Rent from './components/Content/Rent/Rent';
-import Forum from './components/Content/Forum/Forum';
-import {Route} from 'react-router';
-import {BrowserRouter} from 'react-router-dom';
-import ApiContainer from "./components/Content/Api/ApiContainer";
-import ApiUserContainer from "./components/Content/ApiUser/ApiUserContainer";
+import Main from './components/Main/Main';
+import Rent from './components/Rent/Rent';
+import Forum from './components/Forum/Forum';
+import {Route, Router} from 'react-router-dom';
+import {Redirect} from "react-router-dom";
+import UsersListContainer from "./components/UsersList/UsersListContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import NavContainer from "./components/Nav/NavContainer";
-import LoginContainer from "./components/Content/Login/LoginContainer";
-import EditProfileContainer from "./components/Content/EditProfile/EditProfileContainer";
+import {connect} from "react-redux";
+import {InitializeApp} from "./Redux/AppReducer";
+import Preloader from "./components/Common/Preloader/Preloader";
+import s from "./styles/Background.module.css";
+import SuspenseWrapper from "./hoc/SuspenseWrapper";
 
-const App = (props) => {
-    let state = props.store.getState()
+const LoginContainer = React.lazy(() => import("./components/Login/LoginContainer"))
+const EditProfileContainer = React.lazy(() => import("./components/EditProfile/EditProfileContainer"))
 
-    return (
-        <BrowserRouter>
+class App extends React.Component {
+    componentDidMount() {
+        this.props.InitializeApp()
+    }
+
+    render() {
+        if (!this.props.initialized) {
+            return <div className={"CenterPreloader"}><Preloader/></div>
+        }
+        return (
             <div className="App">
+                <div><img className={`${backgroundStyle.back} ${backgroundStyle.image}`}
+                          src={priroda}/>
+                    <span className={`${backgroundStyle.back} ${backgroundStyle.gradient}`}/><span
+                        className={s.backBlock}/></div>
                 <HeaderContainer/>
-                <Background/>
                 <div className="grid">
 
                     <NavContainer/>
                     <div className='content'>
                         <Route path='/rent'
                                render={() =>
-                                   <Rent Rent={state.Rent/*       REFACTOR          */}/>}/>
-
+                                   <Rent/>}/>
+                        <Route exact path={'/'}
+                               render={() =>
+                                   <Redirect to={"/main"}/>}/>
                         <Route path='/main'
                                render={() =>
-                                   <Main
-                                       store={props.store}
-                                   />
-                               }/>
+                                   <Main/>}/>
                         <Route path='/user/:userId'
-                               render={() => {
-                                   return <ApiUserContainer/>
-                               }}
-                        />
+                               render={() =>
+                                   <ProfileContainer/>}/>
                         <Route path='/forum'
                                render={() =>
                                    <Forum/>}/>
                         <Route path='/login'
-                               render={() =>
-                                   <LoginContainer/>}/>
+                               render={SuspenseWrapper(LoginContainer)}/>
                         <Route path='/edit-profile'
+                               render={SuspenseWrapper(EditProfileContainer)}/>
+                        <Route path='/users/all/:page'
                                render={() =>
-                                   <EditProfileContainer/>}/>
-                        <Route path='/api/:page'
-                               render={() => {
-                                   return <ApiContainer store={props.store}/>
-                               }}/>
+                                   <UsersListContainer
+                                       onlyFollowed={null}/>}/>
+                        <Route path='/users/followed/:page'
+                               render={() =>
+                                   <UsersListContainer
+                                       onlyFollowed={true}/>}/>
                     </div>
 
                 </div>
             </div>
-        </BrowserRouter>
-    );
+        );
+    }
 }
-export default App;
+
+const mapStateToProps = (state) => ({
+    initialized: state.App.initialized
+})
+export default connect(mapStateToProps, {InitializeApp})(App);

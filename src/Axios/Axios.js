@@ -9,17 +9,21 @@ let instance = axios.create(
 )
 
 export class ApiUserAxios {
-    static async GetUser(userId){
+    static GetUser(userId){
         return Promise.all([
             instance.get(`profile/${userId}`),
-            instance.get(`follow/${userId}`),
             instance.get(`profile/status/${userId}`)
-        ]).then(([UserResponse, FollowResponse, StatusResponse]) => {
-            return [UserResponse.data, FollowResponse.data, StatusResponse.data]
+        ]).then(([UserResponse, StatusResponse]) => {
+            return [UserResponse.data, StatusResponse.data]
         })
     }
-    static async GetUsers(pageCount, pageNumber){
-        return instance.get(`users?count=${pageCount}&page=${pageNumber}`).then((response)=>{
+    static GetFollowedStatus(userId){
+        return instance.get(`follow/${userId}`).then((response) => {
+            return response.data
+        })
+    }
+    static async GetUsers(pageCount, pageNumber, onlyFollowed, searchString){
+        return instance.get(`users?count=${pageCount}&page=${pageNumber}&friend=${onlyFollowed}&term=${searchString}`).then((response)=>{
             return ({items: response.data.items, totalCount:response.data.totalCount})
         })
     }
@@ -33,8 +37,8 @@ export class ApiUserAxios {
         return instance.put(`profile/status`,{status})
     }
 }
-export class ApiAuthAxios{
-    static async Auth(){
+export class AuthAxios{
+    static async GetAuthUserData(){
         return instance.get('auth/me').then((response)=>{
             return {id: response.data.data.id, login: response.data.data.login, email:response.data.data.email}
         })

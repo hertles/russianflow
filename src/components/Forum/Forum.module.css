@@ -1,0 +1,17 @@
+.Forum{
+  grid-area: c;
+  display: grid;
+  grid-template-areas:
+  "nf cf";
+  grid-template-columns: 300px 300px;
+  width: 700px;
+  grid-gap: 10px;
+  
+}
+.NavForum{
+
+  grid-area: nf;
+}
+.ContentForum{
+  grid-area: cf;
+}

@@ -7,15 +7,18 @@ import store from './Redux/reduxStore'
 
 import App from './App'
 import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
 
-    ReactDOM.render(
-        <React.StrictMode>
+ReactDOM.render(
+    <React.StrictMode>
+        <BrowserRouter>
             <Provider store={store}>
-                <App store={store}/>
+                <App/>
             </Provider>
-        </React.StrictMode>,
-        document.getElementById('root')
-    );
+        </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

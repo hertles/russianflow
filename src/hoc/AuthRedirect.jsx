@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 let mapStateToProps=(state)=>({
-    isAuth: state.ApiAuth.isAuth
+    isAuth: state.Auth.isAuth
 })
 let AuthRedirect = (Component) =>{
     let RedirectContainer = (props) =>{

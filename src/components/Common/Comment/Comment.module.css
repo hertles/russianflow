@@ -1,0 +1,23 @@
+.MessageBox{
+    padding:1px;
+    margin: 20px 0;
+    width: 700px;
+}
+
+.Message{
+    margin: 0 20px;
+}
+.UserName{
+    width: initial;
+}
+
+.Line{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Date{
+    margin-left: 10px;
+    color: #ffffff50;
+}
