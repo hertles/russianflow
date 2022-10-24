@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/russianflow/static/css/main.50c51369.chunk.css",
-    "main.js": "/russianflow/static/js/main.b82b492a.chunk.js",
-    "main.js.map": "/russianflow/static/js/main.b82b492a.chunk.js.map",
-    "runtime-main.js": "/russianflow/static/js/runtime-main.bb2ddc90.js",
-    "runtime-main.js.map": "/russianflow/static/js/runtime-main.bb2ddc90.js.map",
-    "static/js/2.a10198e0.chunk.js": "/russianflow/static/js/2.a10198e0.chunk.js",
-    "static/js/2.a10198e0.chunk.js.map": "/russianflow/static/js/2.a10198e0.chunk.js.map",
+    "main.js": "/russianflow/static/js/main.c87f48cb.chunk.js",
+    "main.js.map": "/russianflow/static/js/main.c87f48cb.chunk.js.map",
+    "runtime-main.js": "/russianflow/static/js/runtime-main.e4a0f041.js",
+    "runtime-main.js.map": "/russianflow/static/js/runtime-main.e4a0f041.js.map",
+    "static/js/2.a4e28d9f.chunk.js": "/russianflow/static/js/2.a4e28d9f.chunk.js",
+    "static/js/2.a4e28d9f.chunk.js.map": "/russianflow/static/js/2.a4e28d9f.chunk.js.map",
     "static/css/3.34f6d193.chunk.css": "/russianflow/static/css/3.34f6d193.chunk.css",
-    "static/js/3.602ad44e.chunk.js": "/russianflow/static/js/3.602ad44e.chunk.js",
-    "static/js/3.602ad44e.chunk.js.map": "/russianflow/static/js/3.602ad44e.chunk.js.map",
+    "static/js/3.762cb826.chunk.js": "/russianflow/static/js/3.762cb826.chunk.js",
+    "static/js/3.762cb826.chunk.js.map": "/russianflow/static/js/3.762cb826.chunk.js.map",
     "static/css/4.35353547.chunk.css": "/russianflow/static/css/4.35353547.chunk.css",
     "static/js/4.7bd7d7ea.chunk.js": "/russianflow/static/js/4.7bd7d7ea.chunk.js",
     "static/js/4.7bd7d7ea.chunk.js.map": "/russianflow/static/js/4.7bd7d7ea.chunk.js.map",
@@ -19,14 +19,14 @@
     "static/css/3.34f6d193.chunk.css.map": "/russianflow/static/css/3.34f6d193.chunk.css.map",
     "static/css/4.35353547.chunk.css.map": "/russianflow/static/css/4.35353547.chunk.css.map",
     "static/css/main.50c51369.chunk.css.map": "/russianflow/static/css/main.50c51369.chunk.css.map",
-    "static/js/2.a10198e0.chunk.js.LICENSE.txt": "/russianflow/static/js/2.a10198e0.chunk.js.LICENSE.txt",
+    "static/js/2.a4e28d9f.chunk.js.LICENSE.txt": "/russianflow/static/js/2.a4e28d9f.chunk.js.LICENSE.txt",
     "static/media/priroda.fa216f26.jpg": "/russianflow/static/media/priroda.fa216f26.jpg",
     "static/media/spinner.07a3b34f.gif": "/russianflow/static/media/spinner.07a3b34f.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.bb2ddc90.js",
-    "static/js/2.a10198e0.chunk.js",
+    "static/js/runtime-main.e4a0f041.js",
+    "static/js/2.a4e28d9f.chunk.js",
     "static/css/main.50c51369.chunk.css",
-    "static/js/main.b82b492a.chunk.js"
+    "static/js/main.c87f48cb.chunk.js"
   ]
 }
