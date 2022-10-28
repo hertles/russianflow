@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/russianflow/static/css/main.c8db9f13.chunk.css",
+    "main.css": "/russianflow/static/css/main.5fdc7cfe.chunk.css",
     "main.js": "/russianflow/static/js/main.31542fe2.chunk.js",
     "main.js.map": "/russianflow/static/js/main.31542fe2.chunk.js.map",
     "runtime-main.js": "/russianflow/static/js/runtime-main.2f530587.js",
@@ -20,7 +20,7 @@
     "index.html": "/russianflow/index.html",
     "static/css/3.e06b3fc7.chunk.css.map": "/russianflow/static/css/3.e06b3fc7.chunk.css.map",
     "static/css/4.9789619d.chunk.css.map": "/russianflow/static/css/4.9789619d.chunk.css.map",
-    "static/css/main.c8db9f13.chunk.css.map": "/russianflow/static/css/main.c8db9f13.chunk.css.map",
+    "static/css/main.5fdc7cfe.chunk.css.map": "/russianflow/static/css/main.5fdc7cfe.chunk.css.map",
     "static/js/2.ef316daf.chunk.js.LICENSE.txt": "/russianflow/static/js/2.ef316daf.chunk.js.LICENSE.txt",
     "static/media/priroda.fa216f26.jpg": "/russianflow/static/media/priroda.fa216f26.jpg",
     "static/media/spinner.07a3b34f.gif": "/russianflow/static/media/spinner.07a3b34f.gif"
@@ -28,7 +28,7 @@
   "entrypoints": [
     "static/js/runtime-main.2f530587.js",
     "static/js/2.ef316daf.chunk.js",
-    "static/css/main.c8db9f13.chunk.css",
+    "static/css/main.5fdc7cfe.chunk.css",
     "static/js/main.31542fe2.chunk.js"
   ]
 }
