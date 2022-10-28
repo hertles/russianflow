@@ -7,11 +7,11 @@ class User extends Component {
         let user = this.props.user
         return (
             <div className={style.Name} >
-                <NavLink to={`/user/${user.id}`}>
+                <NavLink to={`/user/${user.id}/`}>
                     <img className={style.Avatar}
                          src={`${user.photos.small ? user.photos.small : 'https://gotrening.com/wp-content/uploads/2021/04/user.png'}`}/>
                 </NavLink>
-                <NavLink to={`/user/${user.id}`}>
+                <NavLink to={`/user/${user.id}/`}>
                     <div className={`Button ${style.NameButton}`}>
                         {`${user.name}`}
                     </div>
@@ -31,7 +31,7 @@ class User extends Component {
                     {`Отписаться`}
                 </div>}
 
-                {user.id === this.props.myId && <NavLink to={"/edit-profile"}>
+                {user.id === this.props.myId && <NavLink to={"/edit_profile"}>
                     <div
                         className={`Button Active ${style.Subscribe} ${style.Edit} ${this.props.isGettingFollowedUsers.some(id => id === user.id) ? "ruler" : ""}`}>
                         {`Редактировать`}

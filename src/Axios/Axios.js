@@ -36,6 +36,18 @@ export class ApiUserAxios {
     static async SetStatus(status){
         return instance.put(`profile/status`,{status})
     }
+    static async SetPhoto(photo){
+        const formData = new FormData();
+        formData.append("image", photo);
+        return instance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+    }
+    static async SetProfile(newProfileData){
+        return instance.put(`profile`,newProfileData)
+    }
 }
 export class AuthAxios{
     static async GetAuthUserData(){

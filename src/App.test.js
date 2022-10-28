@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import {TestHoc} from "./utils/hoc/TestHoc";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders app',  () => {
+  render(TestHoc(<App />));
+  const app = screen.getByTestId("app");
+  expect(app).toBeInTheDocument();
 });

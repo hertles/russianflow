@@ -1,5 +1,5 @@
 import {AuthAxios} from "../Axios/Axios";
-
+const CHANGE_LOGIN = "AUTH/CHANGE_LOGIN"
 let initialState = {
     userId: null,
     login: null,
@@ -16,6 +16,9 @@ let AuthReducer = (state = initialState, action) => {
             }
             return {...state, ...action.data, isAuth: true}
         }
+        case CHANGE_LOGIN: {
+            return {...state, login: action.login}
+        }
         default: {
             return state;
         }
@@ -23,6 +26,9 @@ let AuthReducer = (state = initialState, action) => {
 }
 export let AuthAC = (userId, login, email) => {
     return {type: 'AUTH', data: {userId, login, email}}
+}
+export let ChangeLogin = (login) => {
+    return {type: CHANGE_LOGIN, login}
 }
 export let GetAuthUserData = () => (dispatch) => {
     /*80*/

@@ -7,14 +7,15 @@
     display: block;
     border-radius: 5px;
     padding: 10px;
-    background-color: #222222;
     color: white;
     border: 0px;
     outline: none;
     width: 400px;
     margin: 0 10px;
 }
-
+.RegAuth{
+    display: flex;
+}
 .lastLine{
     display: flex;
     width: 400px;

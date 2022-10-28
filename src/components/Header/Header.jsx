@@ -11,7 +11,7 @@ const Header = (props) => {
     }
     let AuthButton = <Button text='Войти' to={`/login`}/>
     if (props.isAuth)
-        AuthButton = <Button text={props.login} to={`/edit-profile`}/>
+        AuthButton = <Button text={props.login} to={`/edit_profile`}/>
     return (
         <span className={`${s.Header} backgroundBlock`}>
             <div className={s.leftSide}>
@@ -20,7 +20,7 @@ const Header = (props) => {
                     className={s.logo}/></NavLink>{AuthButton}</div>
             <div className={s.rightSide}><Route path={"/user"}
                                                 render={() => <Button className={s.Back} onClick={() => Back()}
-                                                                      text={"Назад"}/>}/><Route path={"/edit-profile"}
+                                                                      text={"Назад"}/>}/><Route path={"/edit_profile"}
                                                                                                 render={() => <Button
                                                                                                     className={s.Back}
                                                                                                     onClick={() => Back()}

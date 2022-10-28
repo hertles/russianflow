@@ -5,6 +5,7 @@
     justify-content: flex-start;
     padding: 10px;
 }
+
 .profilePhoto{
     width: 200px;
     height: 200px;
@@ -13,11 +14,12 @@
     cursor: pointer;
 }
 .profilePhoto:active{
-    filter: brightness(0.85);
+    filter: brightness(0.8);
 }
-.info{
-    margin: 10px;
+.profilePhoto:hover{
+    filter: brightness(0.9);
 }
+
 .Subscribe{
     width: 115px;
     text-align: center;

@@ -1,8 +1,9 @@
 
 import style from "./Login.module.css"
 import {Field, Form} from "react-final-form";
-import {NotEmpty} from "../../validators/fieldValidators";
+import {NotEmpty} from "../../utils/validators/fieldValidators";
 import {useHistory} from "react-router-dom";
+
 const Login = (props)=>{
     const history=useHistory()
     const onSubmit = async (formData) =>{
@@ -39,8 +40,7 @@ const Login = (props)=>{
                         </div>
                     )}
                 </Field>
-                <div className={style.lastLine}><div><label>Запомнить меня </label><Field name="rememberMe" component={"input"} type={"checkbox"} className={"checkbox"}/></div>
-                <button className={`Button ${style.submit}`}>Войти</button></div>
+                <div className={style.lastLine}><div><label>Запомнить меня </label><Field name="rememberMe" component={"input"} type={"checkbox"} className={"checkbox"}/></div><div className={style.RegAuth}><a target={"_blank"} href={"https://social-network.samuraijs.com/signUp"}><div className={`Button ${style.submit}`}>Регистрация</div></a><input type={"submit"} className={`Button ${style.submit}`} value={"Войти"}/></div></div>
             </form>
         )}/>
     </div>

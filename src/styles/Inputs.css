@@ -2,9 +2,13 @@ input{
     border-radius: 5px;
     padding: 10px;
     background-color: #333333;
+    border-inline: 5px solid #444444;
     color: white;
     border: 0px;
     outline: none;
+}
+.choosePhotoInput{
+    pointer-events: none;
 }
 .errorInput{
     border: 2px solid firebrick;

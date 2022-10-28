@@ -5,15 +5,50 @@
     flex-direction: column;
     justify-content: flex-start;
 }
-.profilePhoto{
+.photoContainer{
+    filter: brightness(1);
     width: 200px;
     height: 200px;
     border-radius: 50%;
     margin: 10px;
+}
+.choosePhotoSpan{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 5px solid white;
+    width: 100px;
+    height: 100px;
+    background-color: #00000020;
+    padding: 10px;
+    pointer-events: none;
+    text-align: center;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+}
+.choosePhotoInput{
+    visibility: hidden;
+}
+.profilePhoto{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    filter: brightness(0.7);
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
     cursor: pointer;
 }
+.profilePhoto:hover{
+    filter: brightness(0.6);
+}
 .profilePhoto:active{
-    filter: brightness(0.85);
+    filter: brightness(0.5);
 }
 .info{
     margin: 10px;
@@ -32,17 +67,11 @@
 .buttonsBlock{
     display: flex;
     align-items: center;
+    margin-top: 15px;
 }
 .saved{
     padding: 10px;
     animation: save 2s linear forwards;
-}
-.statusInputBlock{
-    display: inline-block;
-}
-.statusInput{
-    width: 300px;
-    margin: 0 20px;
 }
 @keyframes save {
     0%{

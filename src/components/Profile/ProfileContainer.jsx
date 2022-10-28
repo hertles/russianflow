@@ -12,7 +12,7 @@ class ApiUserAxiosContainer extends React.Component {
         this.props.GetUser(this.props.match.params.userId, this.props.isAuth)
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.userId != this.props.match.params.userId) {
+        if (prevProps.profile && prevProps.profile.userId != this.props.match.params.userId) {
             this.props.GetUser(this.props.match.params.userId, this.props.isAuth)
         }
     }
@@ -24,15 +24,10 @@ class ApiUserAxiosContainer extends React.Component {
 }
 let mapStateToProps = (state) => {
     return {
-        fullName: state.Profile.fullName,
-        userId: state.Profile.userId,
-        followed: state.Profile.followed,
-        photos: state.Profile.photos,
-        lookingForAJob: state.Profile.lookingForAJob,
+        profile: state.Profile.profile,
         isFetching: state.Profile.isFetching,
         isGettingFollowed: state.Profile.isGettingFollowed,
         myId: state.Auth.userId,
-        status: state.Profile.status,
         isAuth: state.Auth.isAuth
     }
 }

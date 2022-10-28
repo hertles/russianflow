@@ -10,7 +10,7 @@ class LoginContainer extends React.Component{
     }
     render(){
         if (this.props.isAuth){
-            return <Redirect to={"/edit-profile"}/>
+            return <Redirect to={"/edit_profile"}/>
         }
         return(
             <Login {...this.props}/>

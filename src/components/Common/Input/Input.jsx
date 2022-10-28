@@ -2,7 +2,7 @@ import style from './Input.module.css'
 import Button from '../Button/Button'
 import React from 'react'
 import {Field, Form} from "react-final-form";
-import {NotEmpty} from "../../../validators/fieldValidators";
+import {NotEmpty} from "../../../utils/validators/fieldValidators";
 
 const Input = (props) => {
     let Click = (values) => {

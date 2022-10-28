@@ -18,7 +18,8 @@ import {connect} from "react-redux";
 import {InitializeApp} from "./Redux/AppReducer";
 import Preloader from "./components/Common/Preloader/Preloader";
 import s from "./styles/Background.module.css";
-import SuspenseWrapper from "./hoc/SuspenseWrapper";
+import SuspenseWrapper from "./utils/hoc/SuspenseWrapper";
+import Photo from "./components/Common/Photo/Photo";
 
 const LoginContainer = React.lazy(() => import("./components/Login/LoginContainer"))
 const EditProfileContainer = React.lazy(() => import("./components/EditProfile/EditProfileContainer"))
@@ -30,15 +31,20 @@ class App extends React.Component {
 
     render() {
         if (!this.props.initialized) {
-            return <div className={"CenterPreloader"}><Preloader/></div>
+            return <div className="App" data-testid={"app"}>
+                <div className={"CenterPreloader"}><Preloader/></div>
+            </div>
         }
         return (
-            <div className="App">
+            <div className="App" data-testid={"app"}>
                 <div><img className={`${backgroundStyle.back} ${backgroundStyle.image}`}
                           src={priroda}/>
                     <span className={`${backgroundStyle.back} ${backgroundStyle.gradient}`}/><span
                         className={s.backBlock}/></div>
                 <HeaderContainer/>
+                <Route path='/user/:userId/photo'
+                       render={() =>
+                           <Photo/>}/>
                 <div className="grid">
 
                     <NavContainer/>
@@ -55,12 +61,13 @@ class App extends React.Component {
                         <Route path='/user/:userId'
                                render={() =>
                                    <ProfileContainer/>}/>
+
                         <Route path='/forum'
                                render={() =>
                                    <Forum/>}/>
                         <Route path='/login'
                                render={SuspenseWrapper(LoginContainer)}/>
-                        <Route path='/edit-profile'
+                        <Route path='/edit_profile'
                                render={SuspenseWrapper(EditProfileContainer)}/>
                         <Route path='/users/all/:page'
                                render={() =>
