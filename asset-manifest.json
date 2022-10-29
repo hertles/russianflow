@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/russianflow/static/css/main.fdcff519.chunk.css",
-    "main.js": "/russianflow/static/js/main.0b999bde.chunk.js",
-    "main.js.map": "/russianflow/static/js/main.0b999bde.chunk.js.map",
+    "main.js": "/russianflow/static/js/main.d1aaa9d4.chunk.js",
+    "main.js.map": "/russianflow/static/js/main.d1aaa9d4.chunk.js.map",
     "runtime-main.js": "/russianflow/static/js/runtime-main.af5d75b3.js",
     "runtime-main.js.map": "/russianflow/static/js/runtime-main.af5d75b3.js.map",
     "static/js/2.7ed6a1c5.chunk.js": "/russianflow/static/js/2.7ed6a1c5.chunk.js",
@@ -31,6 +31,6 @@
     "static/js/runtime-main.af5d75b3.js",
     "static/js/2.7ed6a1c5.chunk.js",
     "static/css/main.fdcff519.chunk.css",
-    "static/js/main.0b999bde.chunk.js"
+    "static/js/main.d1aaa9d4.chunk.js"
   ]
 }
