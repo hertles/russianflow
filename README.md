@@ -1,7 +1,5 @@
 # RussianFlow
-RussianFlow is a single page application on React/Redux
-
-# Created using SamuraiJS API
+RussianFlow is a single page application on React/Redux. It is created using SamuraiJS API
 
 # Visit site: https://hertles.github.io/russianflow/
 
