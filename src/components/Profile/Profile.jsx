@@ -43,7 +43,7 @@ let Profile = (props) => {
         <SpanInfo key={"aboutMe"} field={"Обо мне"} description={props.profile.aboutMe}/>
         <SpanInfo key={"lookingForAJob"} field={"Ищет работу"} description={lookingForAJob}/>
         <SpanInfo key={"lookingForAJobDescription"} field={"Профессиональные навыки"} description={props.profile.lookingForAJobDescription}/>
-        <SpanInfo key={"Веб-сайт"} field={"website"} description={props.profile.contacts.website}/>
+        <SpanInfo key={"website"} field={"Веб-сайт"} description={props.profile.contacts.website}/>
         <SpanInfo key={"github"} field={"github"} description={props.profile.contacts.github}/>
         <SpanInfo key={"vk"} field={"vk"} description={props.profile.contacts.vk}/>
         <SpanInfo key={"youtube"} field={"youtube"} description={props.profile.contacts.youtube}/>

@@ -8,7 +8,7 @@ import React from 'react'
 import Main from './components/Main/Main';
 import Rent from './components/Rent/Rent';
 import Forum from './components/Forum/Forum';
-import {Route, Router} from 'react-router-dom';
+import {Route, Router, Switch} from 'react-router-dom';
 import {Redirect} from "react-router-dom";
 import UsersListContainer from "./components/UsersList/UsersListContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -28,7 +28,6 @@ class App extends React.Component {
     componentDidMount() {
         this.props.InitializeApp()
     }
-
     render() {
         if (!this.props.initialized) {
             return <div className="App" data-testid={"app"}>
@@ -49,34 +48,41 @@ class App extends React.Component {
 
                     <NavContainer/>
                     <div className='content'>
-                        <Route path='/rent'
-                               render={() =>
-                                   <Rent/>}/>
-                        <Route exact path={'/'}
-                               render={() =>
-                                   <Redirect to={"/main"}/>}/>
-                        <Route path='/main'
-                               render={() =>
-                                   <Main/>}/>
-                        <Route path='/user/:userId'
-                               render={() =>
-                                   <ProfileContainer/>}/>
+                        <Switch>
+                            <Route path='/rent'
+                                   render={() =>
+                                       <Rent/>}/>
+                            <Route exact path={'/'}
+                                   render={() =>
+                                       <Redirect to={"/main"}/>}/>
+                            <Route path='/main'
+                                   render={() =>
+                                       <Main/>}/>
+                            <Route path='/user/:userId'
+                                   render={() =>
+                                       <ProfileContainer/>}/>
 
-                        <Route path='/forum'
-                               render={() =>
-                                   <Forum/>}/>
-                        <Route path='/login'
-                               render={SuspenseWrapper(LoginContainer)}/>
-                        <Route path='/edit_profile'
-                               render={SuspenseWrapper(EditProfileContainer)}/>
-                        <Route path='/users/all/:page'
-                               render={() =>
-                                   <UsersListContainer
-                                       onlyFollowed={null}/>}/>
-                        <Route path='/users/followed/:page'
-                               render={() =>
-                                   <UsersListContainer
-                                       onlyFollowed={true}/>}/>
+                            <Route path='/forum'
+                                   render={() =>
+                                       <Forum/>}/>
+                            <Route path='/login'
+                                   render={SuspenseWrapper(LoginContainer)}/>
+                            <Route path='/edit_profile'
+                                   render={SuspenseWrapper(EditProfileContainer)}/>
+                            <Route path='/users/all/:page'
+                                   render={() =>
+                                       <UsersListContainer
+                                           onlyFollowed={null}/>}/>
+                            <Route path='/users/followed/:page'
+                                   render={() =>
+                                       <UsersListContainer
+                                           onlyFollowed={true}/>}/>
+                            <Route path='*'
+                                   render={() =>
+                                       <div className={`backgroundBlock error404`}><h1>Ошибка 404</h1><br/>Страница не
+                                           найдена</div>}/>
+                        </Switch>
+
                     </div>
 
                 </div>

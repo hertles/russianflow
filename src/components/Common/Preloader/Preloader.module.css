@@ -2,5 +2,5 @@
     width: 120px;
     height: 120px;
     margin: 20px;
-    opacity: 50%;
+    filter: invert(0.7);
 }

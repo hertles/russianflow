@@ -55,8 +55,13 @@ export class AuthAxios{
             return {id: response.data.data.id, login: response.data.data.login, email:response.data.data.email}
         })
     }
-    static async LoginToAPI(email,password,rememberMe){
-        return instance.post('auth/login',{email,password,rememberMe})
+    static async GetCaptcha(){
+        return instance.get('security/get-captcha-url').then((response)=>{
+            return response.data.url
+        })
+    }
+    static async LoginToAPI(email,password,rememberMe,captcha){
+        return instance.post('auth/login',{email,password,rememberMe,captcha})
     }
     static async LogoutFromAPI(){
         return instance.delete('auth/login')

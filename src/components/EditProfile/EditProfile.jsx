@@ -16,7 +16,6 @@ let EditProfile = ({profile, userId, isFetching, LogoutFromAPI, ApplyChanges, sa
         return <div className={`${style.EditProfile} backgroundBlock`}><Preloader/></div>
     }
     return <div className={`${style.EditProfile} backgroundBlock`}><Button text={profile.fullName}/>
-
         <Form onSubmit={ApplyChanges}
               initialValues={{
                   status: profile.status,
@@ -32,7 +31,6 @@ let EditProfile = ({profile, userId, isFetching, LogoutFromAPI, ApplyChanges, sa
                   twitter: profile.contacts.twitter,
                   instagram: profile.contacts.instagram,
                   mainLink: profile.contacts.mainLink,
-
               }}
               render={({handleSubmit, values}) => (
                   <form className={style.form} onSubmit={handleSubmit}>
@@ -42,7 +40,7 @@ let EditProfile = ({profile, userId, isFetching, LogoutFromAPI, ApplyChanges, sa
                       </div>
                       <SpanField name={"status"} span={"Статус"}/>
                       <SpanField name={"aboutMe"} span={"Обо мне"} required={true}/>
-                      <SpanField name={"fullName"} span={"Полное имя"} required={true}/>
+                      <SpanField name={"fullName"} span={"Имя"} required={true}/>
                       <SpanField name={"website"} span={"Веб-сайт"} isUrl={true}/>
                       <SpanField name={"github"} span={"GitHub"} isUrl={true}/>
                       <SpanField name={"vk"} span={"ВК"} isUrl={true}/>
@@ -61,7 +59,7 @@ let EditProfile = ({profile, userId, isFetching, LogoutFromAPI, ApplyChanges, sa
                                                                          className={`${style.apply} Button`}
                                                                          value="Посмотреть мой профиль"/></NavLink>
                           <Button className={`${style.apply} Button`} onClick={LogoutFromAPI} text={"Выйти"}/>
-                          {saved ? <div className={style.saved}>Сохранено</div> : <div></div>}
+                          {saved ? <div className={style.saved}>Сохранено</div> : null}
                       </div>
                   </form>
               )}/>

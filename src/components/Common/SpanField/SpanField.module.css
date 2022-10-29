@@ -1,8 +1,6 @@
-.info{
-    margin: 10px;
-}
 .inputBlock{
     display: inline-block;
+    margin: 10px;
 }
 .input{
     width: 100%;

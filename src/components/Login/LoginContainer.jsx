@@ -19,7 +19,8 @@ class LoginContainer extends React.Component{
 }
 let mapStateToProps = (state) => ({
     isAuth: state.Auth.isAuth,
-    userId: state.Auth.userId
+    userId: state.Auth.userId,
+    captchaUrl: state.Auth.captchaUrl
 })
 let mapDispatchToProps = {
     LoginToAPI

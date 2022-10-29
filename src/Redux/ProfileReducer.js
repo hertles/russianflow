@@ -1,4 +1,5 @@
 import {ApiUserAxios} from "../Axios/Axios";
+import {Logger} from "sass";
 
 const GET_USER = 'PROFILE/GET_USER'
 const GET_FOLLOWED_STATUS = 'PROFILE/GET_FOLLOWED_STATUS'

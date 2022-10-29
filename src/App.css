@@ -31,7 +31,14 @@ a, NavLink, a:hover, a:focus{
   background-color: #222222;
   border-radius: 5px;
 }
-
+.error404{
+  padding: 50px 10px;
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 ::-webkit-scrollbar {
 	background-color: black;
 }

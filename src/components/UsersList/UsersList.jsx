@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useLayoutEffect} from 'react';
 import style from './UsersList.module.css'
 import Preloader from "../Common/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
@@ -6,6 +6,12 @@ import {Field, Form} from "react-final-form";
 import User from "./User";
 
 let UsersList = props => {
+    useLayoutEffect(()=>{
+        props.LoadPage(1,props.count, props.onlyFollowed, props.searchString)
+    },[props.searchString])
+    useLayoutEffect(()=>{
+        props.LoadPage(Number(props.match.params.page),props.count, props.onlyFollowed, props.searchString)
+    },[props.match.params.page])
     let url = '/users/all/'
     if (props.onlyFollowed) {
         url = '/users/followed/'

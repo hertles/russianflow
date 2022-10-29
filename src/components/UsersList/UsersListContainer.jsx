@@ -50,14 +50,6 @@ let mapDispatchToProps = {
 }
 
 class ApiAxiosContainer extends React.Component {
-    componentDidMount() {
-        this.props.LoadPage(Number(this.props.match.params.page),this.props.count, this.props.onlyFollowed, this.props.searchString)
-    }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.searchString!=this.props.searchString){
-            this.props.LoadPage(1,this.props.count, this.props.onlyFollowed, this.props.searchString)
-        }
-    }
     PageMinus = () => {
         this.props.LoadPage(Number(this.props.match.params.page)-1,this.props.count, this.props.onlyFollowed, this.props.searchString)
     }
