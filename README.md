@@ -1,9 +1,6 @@
 # RussianFlow
-RussianFlow is a single page application on React/Redux
+RussianFlow is a single page application on React/Redux. It is created using SamuraiJS API
 
-# Pet project dedicated to river rafting
-In the future, route maps will be placed on it, on which various places will be marked (mountains, campsites, villages, shops, springs)
-
-
+# Visit site: https://hertles.github.io/russianflow/
 
 ![Альтернативный текст](/src/assets/images/preview.png)
