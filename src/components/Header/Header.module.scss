@@ -16,13 +16,26 @@
 .AuthButton{
     align-self: center;
 }
+.logoOuter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    &:hover{
+        padding-right: 10px;
+        transition: 0.5s;
+    }
+}
 .logo{
-    padding: 0.3%;
-    margin: 5px;
+    filter: brightness(0.5);
     height: 80%;
     width: 60px;
-    filter:invert(1);
     justify-content: start;
     align-items: center;
     margin-left: 20px;
+    transition: 0.5s;
+    &:hover{
+        filter: brightness(1);
+        transition: 0.5s;
+    }
 }

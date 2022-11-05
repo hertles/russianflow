@@ -6,6 +6,7 @@ import {Route} from "react-router-dom";
 import Burger_button from '../../assets/images/burger_menu.png'
 import React from "react";
 import NavContainer from "../Nav/NavContainer";
+import logo from '../../assets/images/logo.png'
 
 const Header = (props) => {
     const history = useHistory();
@@ -19,8 +20,8 @@ const Header = (props) => {
         <span className={`${s.Header} backgroundBlock`}>
 
             <div className={s.leftSide}>
-                <NavLink to='/main'><img
-                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Oganesson_zh-hans.svg/1200px-Oganesson_zh-hans.svg.png'
+                <NavLink to='/main' className={s.logoOuter}><img
+                    src={logo}
                     className={s.logo}/></NavLink><div className={s.AuthButton}>{AuthButton}</div></div>
             <div className={s.rightSide}><input id="inputBurger" type="checkbox"/><label htmlFor="inputBurger"
                                                                                          id="Burger"><img
