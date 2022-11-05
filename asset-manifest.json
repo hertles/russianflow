@@ -3,11 +3,11 @@
     "main.css": "/russianflow/static/css/main.75fd4728.chunk.css",
     "main.js": "/russianflow/static/js/main.018c37c6.chunk.js",
     "main.js.map": "/russianflow/static/js/main.018c37c6.chunk.js.map",
-    "runtime-main.js": "/russianflow/static/js/runtime-main.750676da.js",
-    "runtime-main.js.map": "/russianflow/static/js/runtime-main.750676da.js.map",
+    "runtime-main.js": "/russianflow/static/js/runtime-main.ecde7019.js",
+    "runtime-main.js.map": "/russianflow/static/js/runtime-main.ecde7019.js.map",
     "static/js/2.5fa139e1.chunk.js": "/russianflow/static/js/2.5fa139e1.chunk.js",
     "static/js/2.5fa139e1.chunk.js.map": "/russianflow/static/js/2.5fa139e1.chunk.js.map",
-    "static/css/3.d154f746.chunk.css": "/russianflow/static/css/3.d154f746.chunk.css",
+    "static/css/3.52577f95.chunk.css": "/russianflow/static/css/3.52577f95.chunk.css",
     "static/js/3.22c33497.chunk.js": "/russianflow/static/js/3.22c33497.chunk.js",
     "static/js/3.22c33497.chunk.js.map": "/russianflow/static/js/3.22c33497.chunk.js.map",
     "static/css/4.e111a18c.chunk.css": "/russianflow/static/css/4.e111a18c.chunk.css",
@@ -18,7 +18,7 @@
     "static/js/6.feabc9da.chunk.js": "/russianflow/static/js/6.feabc9da.chunk.js",
     "static/js/6.feabc9da.chunk.js.map": "/russianflow/static/js/6.feabc9da.chunk.js.map",
     "index.html": "/russianflow/index.html",
-    "static/css/3.d154f746.chunk.css.map": "/russianflow/static/css/3.d154f746.chunk.css.map",
+    "static/css/3.52577f95.chunk.css.map": "/russianflow/static/css/3.52577f95.chunk.css.map",
     "static/css/4.e111a18c.chunk.css.map": "/russianflow/static/css/4.e111a18c.chunk.css.map",
     "static/css/main.75fd4728.chunk.css.map": "/russianflow/static/css/main.75fd4728.chunk.css.map",
     "static/js/2.5fa139e1.chunk.js.LICENSE.txt": "/russianflow/static/js/2.5fa139e1.chunk.js.LICENSE.txt",
@@ -28,7 +28,7 @@
     "static/media/spinner.07a3b34f.gif": "/russianflow/static/media/spinner.07a3b34f.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.750676da.js",
+    "static/js/runtime-main.ecde7019.js",
     "static/js/2.5fa139e1.chunk.js",
     "static/css/main.75fd4728.chunk.css",
     "static/js/main.018c37c6.chunk.js"
