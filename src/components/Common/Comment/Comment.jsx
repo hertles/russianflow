@@ -1,4 +1,4 @@
-import s from './Comment.module.css'
+import s from './Comment.module.scss'
 import Button from "../Button/Button";
 import React from "react";
 

@@ -1,5 +1,4 @@
 .Api{
-    width: 700px;
     grid-area: c;
     display: flex;
     padding: 10px;
@@ -11,9 +10,10 @@
 .Name{
     display: flex;
     justify-content: space-between;
+    gap: 10px;
 }
 .searchInput{
-    width: 605px;
+    flex-grow: 3;
     margin-right: 10px;
 }
 .searchForm{
@@ -23,6 +23,7 @@
     margin-bottom: 10px;
 }
 .Navigation{
+    overflow: hidden;
     display: flex;
     justify-content: flex-start;
     margin-top: -10px;
@@ -59,7 +60,7 @@
     opacity: 50%;
 }
 .NameButton {
-    width: 488px;
+    flex-grow: 2;
     margin: 0px 0px 10px 0px!important;
 }
 .Subscribe{

@@ -1,8 +1,8 @@
-import './App.css';
-import './styles/Button.css'
-import './styles/CheckBox.css'
-import './styles/Inputs.css'
-import backgroundStyle from './styles/Background.module.css'
+import './App.scss';
+import './styles/Button.scss'
+import './styles/CheckBox.scss'
+import './styles/Inputs.scss'
+import backgroundStyle from './styles/Background.module.scss'
 import priroda from './assets/images/priroda.jpg'
 import React from 'react'
 import Main from './components/Main/Main';
@@ -17,7 +17,7 @@ import NavContainer from "./components/Nav/NavContainer";
 import {connect} from "react-redux";
 import {InitializeApp} from "./Redux/AppReducer";
 import Preloader from "./components/Common/Preloader/Preloader";
-import s from "./styles/Background.module.css";
+import s from "./styles/Background.module.scss";
 import SuspenseWrapper from "./utils/hoc/SuspenseWrapper";
 import Photo from "./components/Common/Photo/Photo";
 
@@ -28,6 +28,7 @@ class App extends React.Component {
     componentDidMount() {
         this.props.InitializeApp()
     }
+
     render() {
         if (!this.props.initialized) {
             return <div className="App" data-testid={"app"}>
@@ -38,15 +39,17 @@ class App extends React.Component {
             <div className="App" data-testid={"app"}>
                 <div><img className={`${backgroundStyle.back} ${backgroundStyle.image}`}
                           src={priroda}/>
-                    <span className={`${backgroundStyle.back} ${backgroundStyle.gradient}`}/><span
-                        className={s.backBlock}/></div>
-                <HeaderContainer/>
+                    <span className={`${backgroundStyle.back} ${backgroundStyle.gradient}`}/>
+                </div>
+
                 <Route path='/user/:userId/photo'
                        render={() =>
                            <Photo/>}/>
+                <span
+                    className={s.backBlock}>
                 <div className="grid">
-
-                    <NavContainer/>
+                    <HeaderContainer/>
+                    <NavContainer id={"LeftNav"}/>
                     <div className='content'>
                         <Switch>
                             <Route path='/rent'
@@ -85,7 +88,8 @@ class App extends React.Component {
 
                     </div>
 
-                </div>
+                </div></span>
+
             </div>
         );
     }

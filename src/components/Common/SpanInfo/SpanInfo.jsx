@@ -1,5 +1,5 @@
 import {isValidHttpUrl} from "../../../utils/checkURL";
-import style from "./SpanInfo.module.css";
+import style from "./SpanInfo.module.scss";
 import React from "react";
 
 export let SpanInfo = ({field, description}) => {

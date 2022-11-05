@@ -1,4 +1,4 @@
-import s from './LikeButton.module.css';
+import s from './LikeButton.module.scss';
 import React from "react";
 
 class LikeButton extends React.Component {

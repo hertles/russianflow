@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import style from "../../EditProfile/EditProfile.module.css";
+import style from "../../EditProfile/EditProfile.module.scss";
 import {useDropzone} from "react-dropzone";
 
 export let Dropzone = props => {

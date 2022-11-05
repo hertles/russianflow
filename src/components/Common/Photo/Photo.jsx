@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import style from './Photo.module.css'
+import style from './Photo.module.scss'
 
 function Photo(props) {
     const [photo, setPhoto] = useState("https://walter.trakt.tv/images/episodes/003/411/284/screenshots/original/a356884197.jpg")

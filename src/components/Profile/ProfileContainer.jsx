@@ -9,11 +9,11 @@ import {LogoutFromAPI} from "../../Redux/AuthReducer";
 
 class ApiUserAxiosContainer extends React.Component {
     componentDidMount() {
-        this.props.GetUser(this.props.match.params.userId, this.props.isAuth)
+        this.props.GetUser(this.props.match.params.userId)
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.profile && prevProps.profile.userId != this.props.match.params.userId) {
-            this.props.GetUser(this.props.match.params.userId, this.props.isAuth)
+            this.props.GetUser(this.props.match.params.userId)
         }
     }
     render() {

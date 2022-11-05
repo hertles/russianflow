@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import s from './Main.module.css';
+import s from './Main.module.scss';
 import Item from '../Common/Item/Item';
 import React from "react";
 import RiverContainer from "./River/RiverContainer";
@@ -16,7 +16,7 @@ class Main extends React.Component {
                   img={river.riverimg}/>
         ))
         return (
-            <div className={s.Content}>
+            <div className={"itemsBlock"}>
                 <Route exact path='/main' render={() => RiverCards}/>
                 <Route path={'/main/river/:riverid'} render={() => {
                     return <RiverContainer/>

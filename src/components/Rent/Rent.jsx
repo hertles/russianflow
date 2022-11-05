@@ -1,4 +1,4 @@
-import s from './Rent.module.css'
+import s from './Rent.module.scss'
 import Item from '../Common/Item/Item'
 import {Route} from 'react-router-dom';
 import {connect} from "react-redux";
@@ -16,7 +16,7 @@ const Rent = (props) => {
                                                        name={product.prodname} img={product.prodimg}
                                                        descr={product.proddescr}/>)
     return (
-        <div className={s.Rent}>
+        <div className={"itemsBlock"}>
                 <Route exact path='/rent/' render={() => categories}/>
                 <Route path='/rent/categorie0' render={() => products}/>
         </div>

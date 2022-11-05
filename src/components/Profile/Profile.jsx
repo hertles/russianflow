@@ -1,5 +1,5 @@
 import React from "react";
-import style from './Profile.module.css'
+import style from './Profile.module.scss'
 import Button from "../Common/Button/Button";
 import Preloader from "../Common/Preloader/Preloader";
 import {SpanInfo} from "../Common/SpanInfo/SpanInfo";

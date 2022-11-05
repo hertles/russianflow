@@ -1,9 +1,9 @@
-import s from './Nav.module.css';
+import s from './Nav.module.scss';
 import Button from '../Common/Button/Button';
 
 const Nav = (props) => {
     return (
-        <span className={`${s.Nav} backgroundBlock`}>
+        <span id={props.id} className={`${s.Nav} backgroundBlock`}>
             <Button to='/main' text='Реки'/>
             <Button to='/rent' text='Прокат'/>
             {props.userId!=null && <Button to={`/edit_profile`} text='Мой профиль'/>}

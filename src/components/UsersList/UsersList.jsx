@@ -1,5 +1,5 @@
 import React, {useLayoutEffect} from 'react';
-import style from './UsersList.module.css'
+import style from './UsersList.module.scss'
 import Preloader from "../Common/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
 import {Field, Form} from "react-final-form";
@@ -11,12 +11,12 @@ let UsersList = props => {
     },[props.searchString])
     useLayoutEffect(()=>{
         props.LoadPage(Number(props.match.params.page),props.count, props.onlyFollowed, props.searchString)
-    },[props.match.params.page])
+    },[props.match.params.page,props.onlyFollowed])
     let url = '/users/all/'
     if (props.onlyFollowed) {
         url = '/users/followed/'
     }
-    const paginationCount = 7
+    const paginationCount = 5
     let numbers = []
     let maxPage = props.totalPages > paginationCount ? paginationCount : props.totalPages
     for (let i = 1; i <= maxPage; i++) {

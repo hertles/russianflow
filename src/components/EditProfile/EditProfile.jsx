@@ -1,4 +1,4 @@
-import style from './EditProfile.module.css'
+import style from './EditProfile.module.scss'
 import React, {useEffect, useState} from "react";
 import Preloader from "../Common/Preloader/Preloader";
 import Button from "../Common/Button/Button";

@@ -87,9 +87,9 @@ export let FollowAC = () => ({type: FOLLOW})
 export let UnfollowAC = () => ({type: UNFOLLOW})
 export let SetStatusAC = (status) => ({type: SET_STATUS, status})
 let SetPhotoAC = (large,small) => ({type: SET_PHOTO, large, small})
-export let GetUser = (userId) => async (dispatch) => {
+export let GetUser = (userId) => async (dispatch,getState) => {
     dispatch(FetchingStart())
-    if (userId) {
+    if (getState().Auth.userId) {
         let [userData, status] = await ApiUserAxios.GetUser(userId)
         dispatch(GetUserAC({...userData, status}))
         let followed = await ApiUserAxios.GetFollowedStatus(userId)

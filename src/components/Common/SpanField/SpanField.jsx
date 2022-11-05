@@ -1,6 +1,6 @@
 import React from 'react';
 import {composeValidators, IsUrl, MaxLengthCreator, NotEmpty} from "../../../utils/validators/fieldValidators";
-import style from "./SpanField.module.css";
+import style from "./SpanField.module.scss";
 import {Field} from "react-final-form";
 import classNames from "classnames";
 

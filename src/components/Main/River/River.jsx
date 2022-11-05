@@ -39,7 +39,7 @@ function River(props) {
         <div key={props.riverid}>
             <YMaps>
                 <div className='ymaps'>
-                    <Map width='700px' height='425px' defaultState={{center: [57.399137, 57.205733], zoom: 11.4}}/>
+                    <Map width='100%' height='425px' defaultState={{center: [57.399137, 57.205733], zoom: 11.4}}/>
                 </div>
             </YMaps>
             <div data-testid="commentsCounter" className={style.CommentsHeader}>Комментарии: ({props.comments.length})

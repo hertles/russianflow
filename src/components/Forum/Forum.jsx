@@ -1,4 +1,4 @@
-import s from './Forum.module.css'
+import s from './Forum.module.scss'
 import Section from './Section/Section';
 import Message from '../Common/Message/Message';
 

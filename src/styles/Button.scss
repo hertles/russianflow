@@ -1,4 +1,8 @@
 .Button{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
     color: white;
     margin: 10px;
     padding: 10px;
@@ -6,18 +10,18 @@
     cursor: pointer;
     user-select: none;
     border-radius: 5px;
-}
-.Button:hover{
-    background-color: #005800;
-}
-.Button:active{
-    background-color: #003900;
-}
-.Button.Active:hover{
-    background-color: #4d794d;
-}
-.Active{
-    background-color: rgb(22, 108, 22);
+    &:hover{
+        background-color: #005800;
+    }
+    &:active{
+        background-color: #003900;
+    }
+    &.Active:hover{
+        background-color: #4d794d;
+    }
+    &.Active{
+        background-color: rgb(22, 108, 22);
+    }
 }
 .ruler{
     background-image: url("../assets/images/ruler.png");

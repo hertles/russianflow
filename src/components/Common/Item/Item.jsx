@@ -1,12 +1,14 @@
 import { NavLink } from 'react-router-dom'
-import s from './Item.module.css'
+import s from './Item.module.scss'
 
 const Item = (props) => {
 
     return (
         <NavLink to={props.to}>
             <div className={`${s.item} backgroundBlock`}>
+                <div className={s.imageContainer}>
                 <img src={props.img} />
+                </div>
                 <div>
                     <div className={s.name}>{props.name}</div>
                     <div className={s.descr}>

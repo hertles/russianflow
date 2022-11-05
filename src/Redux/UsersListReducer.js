@@ -1,16 +1,16 @@
 import {ApiUserAxios} from "../Axios/Axios";
 
-const LOAD_USERS = "LOAD_USERS"
-const SET_TOTAL_COUNT = "SET_TOTAL_COUNT"
-const PAGE_SET = "PAGE_SET"
-const FETCHING_START = "FETCHING_START"
-const FETCHING_END = "FETCHING_END"
-const FOLLOW = "FOLLOW"
-const UNFOLLOW = "UNFOLLOW"
-const FETCHING_FOLLOW_START = "FETCHING_FOLLOW_START"
-const FETCHING_FOLLOW_END = "FETCHING_FOLLOW_END"
-const SET_SEARCH_STRING = "SET_SEARCH_STRING"
-const SET_ONLY_FOLLOWED = "SET_ONLY_FOLLOWED"
+const LOAD_USERS = "USERS_LIST/LOAD_USERS"
+const SET_TOTAL_COUNT = "USERS_LIST/SET_TOTAL_COUNT"
+const PAGE_SET = "USERS_LIST/PAGE_SET"
+const FETCHING_START = "USERS_LIST/FETCHING_START"
+const FETCHING_END = "USERS_LIST/FETCHING_END"
+const FOLLOW = "USERS_LIST/FOLLOW"
+const UNFOLLOW = "USERS_LIST/UNFOLLOW"
+const FETCHING_FOLLOW_START = "USERS_LIST/FETCHING_FOLLOW_START"
+const FETCHING_FOLLOW_END = "USERS_LIST/FETCHING_FOLLOW_END"
+const SET_SEARCH_STRING = "USERS_LIST/SET_SEARCH_STRING"
+const SET_ONLY_FOLLOWED = "USERS_LIST/SET_ONLY_FOLLOWED"
 
 let initialState = {
     list: [],
@@ -124,10 +124,15 @@ export let LoadPage = (pageNumber, pageCount, onlyFollowed, searchString) => asy
     await dispatch(SetOnlyFollowed(onlyFollowed))
     await dispatch(PageSet(pageNumber, onlyFollowed))
     dispatch(FetchingStart())
-    let data = await ApiUserAxios.GetUsers(pageCount, pageNumber, onlyFollowed, searchString)
-    dispatch(SetUsers(data.items, onlyFollowed))
-    dispatch(SetTotalCount(data.totalCount))
-    dispatch(FetchingEnd())
+    try {
+        let data = await ApiUserAxios.GetUsers(pageCount, pageNumber, onlyFollowed, searchString)
+        dispatch(SetUsers(data.items, onlyFollowed))
+        dispatch(SetTotalCount(data.totalCount))
+        dispatch(FetchingEnd())
+    }
+    catch{
+        dispatch(FetchingEnd())
+    }
 }
 export const Follow = (userId) => async (dispatch) => {
     dispatch(FetchingFollowStart(userId))

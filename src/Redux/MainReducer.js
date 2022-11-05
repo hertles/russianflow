@@ -16,13 +16,13 @@ let initialState = {
             riverid: 2,
             rivername: 'Белая',
             riverdescr: 'В республике очень любят эту реку, для них она является самой важной и почитаемой природной ценностью. Река Белая — это визитная карточка Башкирии и ее символ, она играет значительную роль в народном фольклоре, о ней сложено множество легенд.',
-            riverimg: 'http://s1.fotokto.ru/photo/full/87/875631.jpg'
+            riverimg: 'https://sun9-64.userapi.com/JS0V6ZsxTfnOpxYnzWQ0IAbsWVfY2s0iCQCKtA/xWT9a11L53I.jpg'
         },
         {
             riverid: 3,
             rivername: 'Чусовая',
             riverdescr: 'Начинаясь в Азии, пересекает Уральские горы и течет в Европу',
-            riverimg: 'http://s3.fotokto.ru/photo/full/572/5725776.jpg'
+            riverimg: 'https://vsegda-pomnim.com/uploads/posts/2022-03/1648675728_20-vsegda-pomnim-com-p-reka-chusovaya-permskii-krai-foto-20.jpg'
         },
         {
             riverid: 4,

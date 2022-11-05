@@ -1,4 +1,4 @@
-import style from './Input.module.css'
+import style from './Input.module.scss'
 import Button from '../Button/Button'
 import React from 'react'
 import {Field, Form} from "react-final-form";
